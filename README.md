@@ -35,6 +35,7 @@ Now you have successfully installed gulp and its updating css automatically.
 
 Only change the .scss files, NEVER the CSS file.
 Never change the listnames and class in main.js without doing it together in the team.
+How we work with branches: create a new branch called feature/functionName.
 
 ## Trello workflow
 
