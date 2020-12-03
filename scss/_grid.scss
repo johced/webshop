@@ -1,0 +1,44 @@
+.grid-container {
+	display: grid;
+	height: 100vh;
+	grid-template:
+		'mainlogo navbar navbar navbar navbar' 150px
+		'mainarea mainarea mainarea mainarea mainarea' 1fr
+		'footer footer footer footer footer' 100px
+		/ 25% 1fr;
+}
+
+.logo {
+	grid-area: mainlogo;
+	border: 1px solid black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.nav {
+	grid-area: navbar;
+	border: 1px solid black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.main {
+	grid-area: mainarea;
+	border: 1px solid black;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	padding: 10px;
+	align-items: center;
+	@include desktop {
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+}
+
+.footer {
+	grid-area: footer;
+	border: 1px solid black;
+}

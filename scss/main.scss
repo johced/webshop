@@ -1,0 +1,20 @@
+@import 'nav';
+@import 'responsive';
+@import 'shoppingcart';
+@import 'products';
+@import 'checkout';
+@import 'grid';
+@import 'continueshopping';
+@import 'successfulorder';
+@import 'payment';
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.mainlogo {
+	max-width: 90%;
+	max-height: 100px;
+}

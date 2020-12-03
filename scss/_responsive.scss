@@ -1,0 +1,11 @@
+@mixin desktop {
+	@media screen and (min-width: 768px) {
+		@content;
+	}
+}
+
+@mixin desktop-lg {
+	@media screen and (min-width: 958px) {
+		@content;
+	}
+}
