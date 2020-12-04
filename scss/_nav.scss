@@ -1,1 +1,46 @@
- 
+nav {
+    ul {
+        display: block;
+        float: right;
+        overflow: hidden;
+        margin: 40px 0;
+        margin-right: 10px;
+        & li {
+            list-style-type: none;
+            float: left;
+            text-align: center;
+            padding: 10px;
+            font-family: 'Roboto', Helvetica, sans-serif;
+            font-size: 17px;
+            & a {
+                text-decoration: none;
+                color: black;
+                #shopping-cart {
+                    font-size: 20px;
+                } 
+                &:hover {
+                    color: gray;
+                }
+            } 
+        } 
+    }
+}
+
+@include mobile {
+    nav {
+        width: 100vw;
+        height: 100vh;
+        visibility: hidden;
+        & ul {
+            padding-top: 20px;
+            display: block;
+            width: 100%;
+            margin: auto;
+        }
+    }
+}
+
+
+
+
+
