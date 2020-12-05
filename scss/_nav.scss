@@ -1,43 +1,91 @@
-nav {
-    width: 100vw;
-    height: 100vh;
-    visibility: hidden;
-    & ul {
-        padding-top: 20px;
-        display: block;
-        width: 100%;
-        margin: auto;
+#books-logo {
+    margin: auto;
+    text-decoration: none;
+    font-size: 40px;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.navbar {
+    font-size: 20px;
+    padding-bottom: 10px;
+    font-family: 'Roboto', Helvetica, sans-serif;
+}
+
+.main-nav {
+    list-style-type: none;
+    display: none;
+    & li {
+        text-align: center;
+        margin: 15px auto;
     }
 }
-@include desktop {
-    nav {
-        ul {
-            display: block;
-            float: right;
-            overflow: hidden;
-            margin: 40px 0;
-            margin-right: 10px;
-            & li {
-                list-style-type: none;
-                float: left;
-                text-align: center;
-                padding: 10px;
-                font-family: 'Roboto', Helvetica, sans-serif;
-                font-size: 17px;
-                & a {
-                    text-decoration: none;
-                    color: black;
-                    #shopping-cart {
-                        font-size: 20px;
-                    } 
-                    &:hover {
-                        color: gray;
-                    }
-                } 
-            } 
+
+.nav-links {
+    text-decoration: none;
+    color:white;
+}
+
+.navbar-toggle {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer; 
+    font-size: 40px;
+}
+
+.active {
+    padding-top: 30px;
+    display: block;
+    background-color:rgba(0,0,0,0.4);
+}
+
+
+@include desktop {                                      
+    .navbar {
+        margin-top: 40px;
+        justify-content: space-between;
+        padding-bottom: 0;
+        height: 70px;
+        align-items: center;
+    }
+    
+    .main-nav {
+        display: flex;
+        margin-right: 30px;
+        flex-direction: row;
+        justify-content: flex-end;
+        li {
+            margin: 0;
         }
     }
+    
+    .nav-links {
+        margin-left: 40px;
+        color: black
+    }
+    
+    .navbar-toggle {
+        display: none;
+    }
+    
+    .nav-links:hover {
+        color: gray;
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

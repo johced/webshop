@@ -15,7 +15,16 @@
 	box-sizing: border-box;
 }
 
-.mainlogo {
-	max-width: 90%;
-	max-height: 100px;
+// .mainlogo {
+// 	max-width: 90%;
+// 	max-height: 100px;
+// }
+
+#main-footer {
+	background-color: rgb(26, 26, 26);
+	& p {
+		color:white;
+		text-align: center;
+		margin-top: 10px;
+	}
 }
