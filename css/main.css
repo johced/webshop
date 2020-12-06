@@ -125,8 +125,7 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  z-index: -1; }
+  align-items: center; }
   header .header-text {
     width: 60vw;
     text-align: center; }
