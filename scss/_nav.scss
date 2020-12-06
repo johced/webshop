@@ -5,88 +5,92 @@
     color: black;
     font-weight: bold;
     cursor: pointer;
-}
-
-.navbar {
-    font-size: 20px;
-    padding-bottom: 10px;
-    font-family: 'Roboto', Helvetica, sans-serif;
-}
-
-.main-nav {
-    list-style-type: none;
-    display: none;
-    & li {
-        text-align: center;
-        margin: 15px auto;
-    }
-}
-
-.nav-links {
-    text-decoration: none;
-    color:white;
-}
-
-.navbar-toggle {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    cursor: pointer; 
+    font-family: serif;
     font-size: 40px;
 }
 
-.active {
-    padding-top: 30px;
-    display: block;
-    background-color:rgba(0,0,0,0.4);
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
+a {
+    font-family: sans-serif;
+    text-decoration: none;
+}
 
-@include desktop {                                      
-    .navbar {
-        margin-top: 40px;
-        justify-content: space-between;
-        padding-bottom: 0;
-        height: 70px;
-        align-items: center;
-    }
-    
-    .main-nav {
-        display: flex;
-        margin-right: 30px;
-        flex-direction: row;
-        justify-content: flex-end;
-        li {
-            margin: 0;
+#main-nav{
+    padding: 0 20px;
+    & nav{
+        margin-top: 60px;
+        position: absolute;
+        top: 50px;
+        right:-100%;
+        width: 100%;
+        height: auto;
+        background-color: rgba(0,0,0,.7);
+        transition: all .5s ease-in-out;
+        & ul{
+            display: block;
+            text-align: center;
+            & a{
+                font-size: 20px;
+                text-decoration: none;
+                height: 50px;
+                line-height: 50px;
+                padding: 0 15px;
+                color: #fff;
+                display: block;
+                transition: .3s;
+                &:hover, &.hightlight{
+                    color: #fff;
+                    background: orangered;
+                }  
+            }
         }
     }
-    
-    .nav-links {
-        margin-left: 40px;
-        color: black
-    }
-    
-    .navbar-toggle {
-        display: none;
-    }
-    
-    .nav-links:hover {
-        color: gray;
-    }
 }
 
+.menu-toggle{
+    line-height: 100px;
+    font-size: 50px;
+    color: black;
+    float: right;
+    cursor: pointer;
+    display: block;
 
+}
 
+#main-nav nav.active{
+    right: 0;
+}
 
+@include desktop {
+    #main-nav{
+        position: absolute;
+        top:0;
+        padding: 0 100px; 
+        width: 100%;
+        & nav {
+            top:0;
+            background-color: rgba(0,0,0,0);
+            & ul{
+                display: flex;
+                float: right;
+                margin-right: 20px;
+                    a {
+                        color: black;
+                    }     
+            }
+        }  
 
+        .menu-toggle{
+            display: none;
+        }
+    }
 
-
-
-
-
-
-
-
-
-
-
+    #main-nav nav#desktop-only {
+        right: 0;
+    }
+}
