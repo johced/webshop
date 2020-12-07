@@ -19,18 +19,34 @@ a {
 
 #main-nav {
   padding: 0 20px; }
+  @media screen and (min-width: 768px) {
+    #main-nav {
+      position: absolute;
+      top: 0;
+      padding: 0 100px;
+      width: 100%; } }
   #main-nav nav {
-    margin-top: 60px;
+    margin-top: 50px;
     position: absolute;
     top: 50px;
     right: -100%;
     width: 100%;
     height: auto;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.4);
     transition: all .5s ease-in-out; }
+    @media screen and (min-width: 768px) {
+      #main-nav nav {
+        top: 0;
+        background-color: rgba(0, 0, 0, 0); } }
     #main-nav nav ul {
       display: block;
       text-align: center; }
+      @media screen and (min-width: 768px) {
+        #main-nav nav ul {
+          display: flex;
+          float: right;
+          margin-right: 20px;
+          padding-bottom: 10px; } }
       #main-nav nav ul a {
         font-size: 20px;
         text-decoration: none;
@@ -40,6 +56,9 @@ a {
         color: #fff;
         display: block;
         transition: .3s; }
+        @media screen and (min-width: 768px) {
+          #main-nav nav ul a {
+            color: black; } }
         #main-nav nav ul a:hover, #main-nav nav ul a.hightlight {
           color: #fff;
           background: orangered; }
@@ -51,27 +70,14 @@ a {
   float: right;
   cursor: pointer;
   display: block; }
+  @media screen and (min-width: 768px) {
+    .menu-toggle {
+      display: none; } }
 
 #main-nav nav.active {
   right: 0; }
 
 @media screen and (min-width: 768px) {
-  #main-nav {
-    position: absolute;
-    top: 0;
-    padding: 0 100px;
-    width: 100%; }
-    #main-nav nav {
-      top: 0;
-      background-color: rgba(0, 0, 0, 0); }
-      #main-nav nav ul {
-        display: flex;
-        float: right;
-        margin-right: 20px; }
-        #main-nav nav ul a {
-          color: black; }
-    #main-nav .menu-toggle {
-      display: none; }
   #main-nav nav#desktop-only {
     right: 0; } }
 
@@ -86,7 +92,10 @@ a {
 .grid-container {
   display: grid;
   height: 100vh;
-  grid-template: 'mainlogo navbar navbar navbar navbar' 100px 'mainarea mainarea mainarea mainarea mainarea' 1fr 'footer footer footer footer footer' 100px / 25% 1fr; }
+  grid-template: 'mainlogo navbar navbar navbar navbar' 100px 'mainarea mainarea mainarea mainarea mainarea' 1fr 'footer footer footer footer footer' 100px / 50% 1fr; }
+  @media screen and (min-width: 768px) {
+    .grid-container {
+      grid-template: 'mainlogo navbar navbar navbar navbar' 100px 'mainarea mainarea mainarea mainarea mainarea' 1fr 'footer footer footer footer footer' 100px / 20% 1fr; } }
 
 .logo {
   grid-area: mainlogo;
@@ -104,7 +113,6 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  padding: 10px;
   align-items: center; }
   @media screen and (min-width: 768px) {
     .main {
@@ -119,7 +127,6 @@ header {
   height: 90vh;
   background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("../images/books.jpg");
   background-size: cover;
-  background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center;
   display: flex;
@@ -129,14 +136,24 @@ header {
   header .header-text {
     width: 60vw;
     text-align: center; }
+    @media screen and (min-width: 768px) {
+      header .header-text {
+        width: 30vw; } }
   header h1 {
     margin-bottom: 10px;
     font-family: League Spartan, sans-serif;
     font-weight: 500;
-    font-size: 45px;
+    font-size: 30px;
     color: white; }
-  header #books {
+    @media screen and (min-width: 768px) {
+      header h1 {
+        font-size: 45px; } }
+  header #book {
     font-size: 45px; }
+    @media screen and (min-width: 768px) {
+      header #book {
+        font-size: 60px;
+        letter-spacing: 0.5px; } }
   header p {
     font-family: 'Open Sans', Helvetica, sans-serif;
     color: white;
@@ -144,8 +161,11 @@ header {
     display: block;
     margin: auto;
     margin-bottom: 20px; }
+    @media screen and (min-width: 768px) {
+      header p {
+        font-size: 20px; } }
   header button {
-    font-size: 16px;
+    font-size: 17px;
     width: 140px;
     border: 2px solid white;
     color: white;
@@ -163,18 +183,10 @@ header {
       color: white; }
       header button a:hover {
         color: black; }
-
-@media screen and (min-width: 768px) {
-  header .header-text {
-    width: 30vw; }
-  header #book {
-    font-size: 60px;
-    letter-spacing: 0.5px; }
-  header p {
-    font-size: 18px; }
-  header button {
-    font-size: 18px;
-    width: 160px; } }
+    @media screen and (min-width: 768px) {
+      header button {
+        font-size: 20px;
+        width: 160px; } }
 
 * {
   margin: 0;

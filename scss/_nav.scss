@@ -22,18 +22,34 @@ a {
 
 #main-nav{
     padding: 0 20px;
+    @include desktop {
+        position: absolute;
+        top:0;
+        padding: 0 100px; 
+        width: 100%;
+    }
     & nav{
-        margin-top: 60px;
+        margin-top: 50px;
         position: absolute;
         top: 50px;
         right:-100%;
         width: 100%;
         height: auto;
-        background-color: rgba(0,0,0,.7);
+        background-color: rgba(0,0,0,.4);
         transition: all .5s ease-in-out;
+        @include desktop {
+            top:0;
+            background-color: rgba(0,0,0,0);
+        }
         & ul{
             display: block;
             text-align: center;
+            @include desktop {
+                display: flex;
+                float: right;
+                margin-right: 20px;
+                padding-bottom: 10px;
+            }
             & a{
                 font-size: 20px;
                 text-decoration: none;
@@ -43,6 +59,9 @@ a {
                 color: #fff;
                 display: block;
                 transition: .3s;
+                @include desktop {
+                    color: black;
+                }
                 &:hover, &.hightlight{
                     color: #fff;
                     background: orangered;
@@ -59,7 +78,9 @@ a {
     float: right;
     cursor: pointer;
     display: block;
-
+    @include desktop {
+        display: none;
+    }
 }
 
 #main-nav nav.active{
@@ -67,30 +88,10 @@ a {
 }
 
 @include desktop {
-    #main-nav{
-        position: absolute;
-        top:0;
-        padding: 0 100px; 
-        width: 100%;
-        & nav {
-            top:0;
-            background-color: rgba(0,0,0,0);
-            & ul{
-                display: flex;
-                float: right;
-                margin-right: 20px;
-                    a {
-                        color: black;
-                    }     
-            }
-        }  
-
-        .menu-toggle{
-            display: none;
+    #main-nav {
+        nav#desktop-only {
+            right: 0;
         }
     }
-
-    #main-nav nav#desktop-only {
-        right: 0;
-    }
 }
+
