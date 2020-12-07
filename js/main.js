@@ -102,6 +102,8 @@ let productsList = [
 	},
 ];
 
+let productDetailObject = [];
+
 $(function () {
 	$('#main-nav').addClass('nav');
 	$('#main-area').addClass('main');
