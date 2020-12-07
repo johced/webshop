@@ -16,15 +16,24 @@
 }
 
 // .mainlogo {
-// 	max-width: 90%;
-// 	max-height: 100px;
-// }
-
+	// 	max-width: 90%;
+	// 	max-height: 100px;
+	// }
+	
 #main-footer {
 	background-color: rgb(26, 26, 26);
-	& p {
-		color:white;
-		text-align: center;
-		margin-top: 10px;
+	text-align: center;
+	padding-top: 20px;
+& p {
+	color:white;
+	padding: 10px;
+	}
+}
+.icons a {
+	color:white;
+	font-size:20px;
+	margin: 10px;
+	&:hover{ 
+		color: rgb(63, 63, 63);
 	}
 }
