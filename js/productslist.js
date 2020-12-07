@@ -8,6 +8,15 @@ $(function () {
 	});
 });
 
-function handleBookClick(e) {
-	console.log(e.data.book);
+function handleBookClick(book) {
+	book.data.book.clicked = !book.data.book.clicked;
+
+	if (book.data.book.clicked == true) {
+		productDetailObject.push(book.data.book);
+
+		let productDetailObjectAsText = JSON.stringify(productDetailObject);
+		sessionStorage.setItem('productDetailObject', productDetailObjectAsText);
+
+		window.location.assign('productdetailpage.html');
+	}
 }
