@@ -2,36 +2,43 @@
 	display: grid;
 	height: 100vh;
 	grid-template:
-		'mainlogo navbar navbar navbar navbar' 150px
+		'mainlogo navbar navbar navbar navbar' 100px
 		'mainarea mainarea mainarea mainarea mainarea' 1fr
 		'footer footer footer footer footer' 100px
-		/ 25% 1fr;
+		/ 50% 1fr;
+		@include desktop {
+			grid-template:'mainlogo navbar navbar navbar navbar' 100px
+			'mainarea mainarea mainarea mainarea mainarea' 1fr
+			'footer footer footer footer footer' 100px
+			/ 20% 1fr;
+		}
 }
 
 .logo {
 	grid-area: mainlogo;
-	border: 1px solid black;
+	// border: 1px solid black;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	
 }
 
 .nav {
 	grid-area: navbar;
-	border: 1px solid black;
-	display: flex;
+	// border: 1px solid black;
+	// display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
 .main {
 	grid-area: mainarea;
-	border: 1px solid black;
+	// border: 1px solid black;
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
-	padding: 10px;
+	// padding: 10px;
 	align-items: center;
 	@include desktop {
 		flex-direction: row;
@@ -40,5 +47,5 @@
 
 .footer {
 	grid-area: footer;
-	border: 1px solid black;
+	// border: 1px solid black;
 }
