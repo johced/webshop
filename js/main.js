@@ -10,10 +10,11 @@ class Product {
 }
 
 class AddedProduct {
-	constructor(title, price, quantity) {
+	constructor(title, price, quantity, id) {
 		this.title = title;
 		this.price = price;
 		this.quantity = quantity;
+		this.id = id;
 	}
 }
 
