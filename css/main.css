@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #books-logo {
   margin: auto;
   text-decoration: none;
@@ -82,12 +83,93 @@ a {
     right: 0; } }
 
 #testbox {
+=======
+#productlistBox {
+>>>>>>> develop
   width: 300px;
-  height: 200px;
-  border: 1px solid black;
+  height: 350px;
   display: flex;
-  justify-content: left;
-  margin: 10px; }
+  justify-content: space-evenly;
+  padding: 10px;
+  margin: 10px;
+  flex-wrap: wrap;
+  flex-direction: column;
+  background-color: #f7f7f7; }
+  @media screen and (min-width: 768px) {
+    #productlistBox {
+      width: 350px;
+      height: 400px; } }
+  #productlistBox img {
+    width: 60%;
+    height: 70%; }
+    @media screen and (min-width: 768px) {
+      #productlistBox img {
+        width: 60%;
+        height: 70%;
+        padding-right: 10px; } }
+  #productlistBox button {
+    width: 80px;
+    height: 40px;
+    background-color: #36a136;
+    border: none;
+    border-radius: 5px;
+    color: white; }
+  #productlistBox p {
+    color: red; }
+
+#productlistBoxDetail {
+  width: 300px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 10px;
+  margin: 10px;
+  background-color: #f7f7f7; }
+  @media screen and (min-width: 768px) {
+    #productlistBoxDetail {
+      flex-direction: row;
+      width: 650px;
+      height: 450px; } }
+  #productlistBoxDetail img {
+    width: 65%;
+    height: 70%;
+    max-height: 270px; }
+    @media screen and (min-width: 768px) {
+      #productlistBoxDetail img {
+        width: 100%;
+        height: 60%;
+        padding-right: 10px; } }
+  #productlistBoxDetail button {
+    width: 80px;
+    height: 40px;
+    background-color: #36a136;
+    border: none;
+    border-radius: 5px;
+    color: white; }
+  #productlistBoxDetail p {
+    color: red; }
+
+#productLeft {
+  display: flex;
+  flex-direction: column;
+  height: 100%; }
+  @media screen and (min-width: 768px) {
+    #productLeft {
+      width: 30%; } }
+  #productLeft img {
+    padding-bottom: 10px; }
+  #productLeft h3 {
+    padding-bottom: 10px; }
+  #productLeft p {
+    padding-bottom: 10px; }
+
+#productDescription {
+  height: 100%;
+  padding-top: 10px; }
+  @media screen and (min-width: 768px) {
+    #productDescription {
+      width: 70%; } }
 
 .grid-container {
   display: grid;
@@ -112,12 +194,12 @@ a {
   grid-area: mainarea;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center; }
   @media screen and (min-width: 768px) {
     .main {
-      flex-direction: row;
-      flex-wrap: wrap; } }
+      flex-direction: row; } }
 
 .footer {
   grid-area: footer; }

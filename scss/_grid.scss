@@ -36,12 +36,12 @@
 	// border: 1px solid black;
 	display: flex;
 	flex-direction: column;
+	flex-wrap: wrap;
 	justify-content: space-evenly;
 	// padding: 10px;
 	align-items: center;
 	@include desktop {
 		flex-direction: row;
-		flex-wrap: wrap;
 	}
 }
 
