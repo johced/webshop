@@ -27,6 +27,8 @@ let productsList = [
 		price: '299kr',
 		description: 'Följ med till ett vackert nordligt hörn av världen, till gemenskapen på Mure, och upplev en höglandsjul du sent kommer att glömma!',
 		clicked: false,
+		quantity: 1,
+		id: 1,
 	},
 	{
 		poster: '/images/products/absolute-freebsd.jpeg',
@@ -35,6 +37,8 @@ let productsList = [
 		price: '559kr',
 		description: "FreeBSD is the muscle behind companies like Netflix and EMC. Any place where someone does heavy lifting on the Internet, you'll find FreeBSD. ",
 		clicked: false,
+		quantity: 1,
+		id: 2,
 	},
 	{
 		poster: '/images/products/jag-kan-ha-fel-och-andra-visdomar-fran-mitt-liv-som-buddhistmunk.jpeg',
@@ -43,6 +47,8 @@ let productsList = [
 		price: '269kr',
 		description: 'Boken är skriven i nära samarbete med Björns två vänner och kolleger Caroline Bankler och Navid Modiri.',
 		clicked: false,
+		quantity: 1,
+		id: 3,
 	},
 	{
 		poster: '/images/products/javascript-the-definitive-guide.jpeg',
@@ -51,6 +57,8 @@ let productsList = [
 		price: '579kr',
 		description: 'JavaScript is the programming language of the web and is used by more software developers today than any other programming language.',
 		clicked: false,
+		quantity: 1,
+		id: 4,
 	},
 	{
 		poster: '/images/products/jul-i-stallet.jpeg',
@@ -59,6 +67,8 @@ let productsList = [
 		price: '169kr',
 		description: 'Mästerligt illustrerad av Lars Klinting som skapat en svit vidunderligt vackra, tidlösa bilder i vintrig miljö.',
 		clicked: false,
+		quantity: 1,
+		id: 5,
 	},
 	{
 		poster: '/images/products/jul-igen-pa-monsterhotellet.jpeg',
@@ -67,6 +77,8 @@ let productsList = [
 		price: '319kr',
 		description: 'Jul igen på Monsterhotellet är den tionde boken om varulvarna på Monsterhotellet.',
 		clicked: false,
+		quantity: 1,
+		id: 6,
 	},
 	{
 		poster: '/images/products/spegelmannen.jpeg',
@@ -75,6 +87,8 @@ let productsList = [
 		price: '249kr',
 		description: 'Spegelmannen är den åttonde boken med Joona Linna.',
 		clicked: false,
+		quantity: 1,
+		id: 7,
 	},
 	{
 		poster: '/images/products/stormvakt.jpeg',
@@ -83,6 +97,8 @@ let productsList = [
 		price: '199kr',
 		description: 'Efter en räcka framgångsrika spänningsromaner startar Kristina Ohlsson med ”Stormvakt” en ny deckarserie om den stillsamme före detta finansmannen August Strindberg.',
 		clicked: false,
+		quantity: 1,
+		id: 8,
 	},
 	{
 		poster: '/images/products/vi-har-sa-roligt-nar-det-ar-jul-astrid-lindgrens-basta-julberattelser.jpeg',
@@ -91,6 +107,8 @@ let productsList = [
 		price: '329kr',
 		description: 'Den perfekta julklappen som räcker hela jullovet!',
 		clicked: false,
+		quantity: 1,
+		id: 9,
 	},
 	{
 		poster: '/images/products/guinness-world-records-2021.jpeg',
@@ -99,6 +117,8 @@ let productsList = [
 		price: '199kr',
 		description: 'Välkommen till Guinness World Records 2021!',
 		clicked: false,
+		quantity: 1,
+		id: 10,
 	},
 ];
 
