@@ -29,6 +29,7 @@
 		border: none;
 		border-radius: 5px;
 		color: white;
+		cursor: pointer;
 	}
 
 	& p {
@@ -92,6 +93,10 @@
 
 	& p {
 		padding-bottom: 10px;
+	}
+
+	& button {
+		cursor: pointer;
 	}
 }
 

@@ -109,7 +109,8 @@ a {
     background-color: #36a136;
     border: none;
     border-radius: 5px;
-    color: white; }
+    color: white;
+    cursor: pointer; }
   #productlistBox p {
     color: red; }
 
@@ -159,6 +160,8 @@ a {
     padding-bottom: 10px; }
   #productLeft p {
     padding-bottom: 10px; }
+  #productLeft button {
+    cursor: pointer; }
 
 #productDescription {
   height: 100%;
