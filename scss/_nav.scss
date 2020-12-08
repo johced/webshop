@@ -36,7 +36,7 @@ a {
         right: -100%;
         width: 100%;
         height: auto;
-        background-color: rgba(0,0,0,.4);
+        background-color: rgba(0,0,0,.7);
         transition: all .5s ease-in-out;
         @include desktop {
             top: 0;
@@ -100,12 +100,11 @@ a {
     position: absolute;;
     top:30px;
     right:80px;
-    // display:flex;
-    // align-items:center;
-    // justify-content:center;
+    font-family: Arial, Helvetica, sans-serif;
     @include desktop {
         top: 55px;
-        right: 30px;
+        right: 10px;
+        cursor: pointer;
     }
     i {
         font-size:40px;
@@ -114,27 +113,65 @@ a {
             font-size: 30px;
         }
     }
-    &:before {
-        content:attr(data-totalitems);
-        font-size:10px;
-        //   font-weight:600;
-        position:absolute;
-        top: 0px;
-        right:-10px;
-        background:rgb(255, 74, 2);
-        //   line-height:24px;
-        padding:0 2px;
-        height:24px;
-        min-width:24px;
-        color:white;
-        text-align:center;
-        border-radius:50%;
-        @include desktop {
-            top: -2px;
-            right: -12px;
-            height: 20px;
-            min-width: 20px;
-        }
-    }
     
+}
+.total-text {
+    font-family: Arial, Helvetica, sans-serif;
+    p{
+        display: inline;
+    }
+}
+
+#cart-header {
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+#cart-items{
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    right: 0;
+    top: 100px;
+    background-color: white;
+    padding: 30px;
+    width: 100%;
+    z-index: 1;
+}
+
+.buttons {
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    a {
+        color: white;
+        font-size: 15px;
+    }
+}
+
+.continue-btn {
+    background-color: rgb(0, 89, 255);
+}
+
+.checkout-btn {
+    background-color: green;
+    float: right;
+}
+.remove{
+    background-color: gray;
+    border-radius: 3px;
+    border: none;
+    color: white;
+    margin: 0px 5px;
+    padding: 3px;
+    float: right;
+}
+
+#list-item li{
+    margin: 10px 0px;
+    list-style-type: none;
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 5px;
 }
