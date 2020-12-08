@@ -79,9 +79,43 @@ a {
 
 @media screen and (min-width: 768px) {
   #main-nav nav#desktop-only {
-    right: 0; } }
+    right: 60px; } }
 
-#testbox {
+.cart {
+  position: absolute;
+  top: 30px;
+  right: 80px; }
+  @media screen and (min-width: 768px) {
+    .cart {
+      top: 55px;
+      right: 30px; } }
+  .cart i {
+    font-size: 40px;
+    color: black; }
+    @media screen and (min-width: 768px) {
+      .cart i {
+        font-size: 30px; } }
+  .cart:before {
+    content: attr(data-totalitems);
+    font-size: 10px;
+    position: absolute;
+    top: 0px;
+    right: -10px;
+    background: #ff4a02;
+    padding: 0 2px;
+    height: 24px;
+    min-width: 24px;
+    color: white;
+    text-align: center;
+    border-radius: 50%; }
+    @media screen and (min-width: 768px) {
+      .cart:before {
+        top: -2px;
+        right: -12px;
+        height: 20px;
+        min-width: 20px; } }
+
+#productlistBox {
   width: 300px;
   height: 350px;
   display: flex;
@@ -170,16 +204,10 @@ a {
 .grid-container {
   display: grid;
   height: 100vh;
-  grid-template: 'mainlogo navbar navbar navbar navbar' 100px
- 'mainarea mainarea mainarea mainarea mainarea' 1fr
- 'footer footer footer footer footer' 100px
- / 50% 1fr; }
+  grid-template: 'mainlogo navbar navbar navbar navbar' 100px 'mainarea mainarea mainarea mainarea mainarea' 1fr 'footer footer footer footer footer' 100px / 50% 1fr; }
   @media screen and (min-width: 768px) {
     .grid-container {
-      grid-template: 'mainlogo navbar navbar navbar navbar' 100px
- 'mainarea mainarea mainarea mainarea mainarea' 1fr
- 'footer footer footer footer footer' 100px
- / 20% 1fr; } }
+      grid-template: 'mainlogo navbar navbar navbar navbar' 100px 'mainarea mainarea mainarea mainarea mainarea' 1fr 'footer footer footer footer footer' 100px / 20% 1fr; } }
 
 .logo {
   grid-area: mainlogo;
