@@ -53,8 +53,8 @@ function displayObjectFromLS() {
 
 			$.each(existingProducts, (i, product) => {
 				if (product.id == item.id) {
-					let test = existingProducts.indexOf(book);
-					existingProducts.splice(test, 1);
+					let objectToRemove = existingProducts.indexOf(book);
+					existingProducts.splice(objectToRemove, 1);
 				}
 			});
 
