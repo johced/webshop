@@ -20,7 +20,7 @@ $(function () {
     // let divTag = $('<div>').addClass('menu-toggle').appendTo(mainNav);
     // $('<i>').addClass('fas fa-bars').appendTo(divTag);
     
-    let navDivHtml = `<nav class="active" id="desktop-only">
+    let navDivHtml = `<nav id="desktop-only">
     <ul>
     <li><a href="#">About Us</a></li>
     <li><a href="../html/productslist.html">Products</a></li>

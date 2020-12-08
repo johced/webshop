@@ -25,8 +25,9 @@ a {
     @include desktop {
         position: absolute;
         top:0;
+        right:0;
         padding: 0 100px; 
-        width: 100%;
+        width: 50%;
     }
     & nav{
         margin-top: 50px;
