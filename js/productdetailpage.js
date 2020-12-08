@@ -18,14 +18,17 @@ function displayObjectFromLS() {
 					'<p>' +
 					book.price +
 					'</p>' +
-					'<button type="button" id="buyButton" alt="button">' +
-					'Buy' +
-					'</button>' +
+					'<div id="quantityBox">' +
 					'<i class="fas fa-minus-circle" id="removeItem"></i>' +
 					'<p id="quantity">' +
 					book.quantity +
 					'</p>' +
-					'<i class="fas fa-plus-circle" id="addItem"></i></div>' +
+					'<i class="fas fa-plus-circle" id="addItem"></i>' +
+					'</div>' +
+					'<button type="button" id="buyButton" alt="button">' +
+					'Add' +
+					'</button>' +
+					'</div>' +
 					'<div id="productDescription"><h5>' +
 					book.description +
 					'</h5></div>'
@@ -49,17 +52,18 @@ function displayObjectFromLS() {
 			let existingProducts = JSON.parse(localStorage.getItem('addedProductsList'));
 			if (existingProducts == null) existingProducts = [];
 
-			let item = new AddedProduct(book.title, book.price, book.quantity, book.id);
+			let item = new AddedProduct(book.title, book.price, book.quantity, book.id, book.totalCost);
+
 			let index = 0;
-			let productTest = false;
+			let productInCart = false;
 			$.each(existingProducts, (i, product) => {
 				if (product.id == item.id) {
-					productTest = true;
+					productInCart = true;
 					index = i;
 				}
 			});
 
-			if (productTest === true) {
+			if (productInCart === true) {
 				existingProducts.splice(index, 1);
 			}
 

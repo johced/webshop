@@ -74,6 +74,10 @@
 	& p {
 		color: red;
 	}
+
+	& #quantity {
+		color: black;
+	}
 }
 
 #productLeft {
@@ -106,4 +110,18 @@
 	@include desktop {
 		width: 70%;
 	}
+}
+
+#quantityBox {
+	display: flex;
+	justify-content: space-evenly;
+	width: 80px;
+	padding-top: 10px;
+}
+
+#removeItem {
+	cursor: pointer;
+}
+#addItem {
+	cursor: pointer;
 }

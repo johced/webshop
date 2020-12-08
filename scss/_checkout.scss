@@ -30,3 +30,32 @@
 		align-items: center;
 	}
 }
+
+#checkoutButtons {
+	display: flex;
+	order: 2;
+	height: 50px;
+	padding-top: 10px;
+
+	& button {
+		width: 140px;
+		cursor: pointer;
+		background-color: rgb(54, 161, 54);
+		border: none;
+		border-radius: 5px;
+		color: white;
+	}
+	& #leftBuyBtn {
+		margin-right: 10px;
+	}
+	& #rightContinueBtn {
+		margin-left: 10px;
+	}
+}
+
+#totalCost {
+	display: flex;
+	order: 3;
+	padding-top: 10px;
+	justify-content: center;
+}

@@ -146,6 +146,8 @@ a {
     color: white; }
   #productlistBoxDetail p {
     color: red; }
+  #productlistBoxDetail #quantity {
+    color: black; }
 
 #productLeft {
   display: flex;
@@ -169,6 +171,18 @@ a {
   @media screen and (min-width: 768px) {
     #productDescription {
       width: 70%; } }
+
+#quantityBox {
+  display: flex;
+  justify-content: space-evenly;
+  width: 80px;
+  padding-top: 10px; }
+
+#removeItem {
+  cursor: pointer; }
+
+#addItem {
+  cursor: pointer; }
 
 #checkoutBox {
   border: 1px solid black;
@@ -197,6 +211,29 @@ a {
     display: flex;
     justify-content: space-evenly;
     align-items: center; }
+
+#checkoutButtons {
+  display: flex;
+  order: 2;
+  height: 50px;
+  padding-top: 10px; }
+  #checkoutButtons button {
+    width: 140px;
+    cursor: pointer;
+    background-color: #36a136;
+    border: none;
+    border-radius: 5px;
+    color: white; }
+  #checkoutButtons #leftBuyBtn {
+    margin-right: 10px; }
+  #checkoutButtons #rightContinueBtn {
+    margin-left: 10px; }
+
+#totalCost {
+  display: flex;
+  order: 3;
+  padding-top: 10px;
+  justify-content: center; }
 
 .grid-container {
   display: grid;
