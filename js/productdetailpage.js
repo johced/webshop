@@ -48,10 +48,21 @@ function displayObjectFromLS() {
 		$('#buyButton').on('click', { book: book }, () => {
 			let existingProducts = JSON.parse(localStorage.getItem('addedProductsList'));
 			if (existingProducts == null) existingProducts = [];
+
 			let item = new AddedProduct(book.title, book.price, book.quantity, book.id);
-			localStorage.setItem('addedProductsList', JSON.stringify(addedProductsList));
+
+			$.each(existingProducts, (i, product) => {
+				if (product.id == item.id) {
+					let test = existingProducts.indexOf(book);
+					existingProducts.splice(test, 1);
+				}
+			});
+
 			existingProducts.push(item);
+
+			localStorage.setItem('addedProductsList', JSON.stringify(addedProductsList));
 			localStorage.setItem('addedProductsList', JSON.stringify(existingProducts));
+
 			window.location.assign('checkout.html');
 		});
 	});
