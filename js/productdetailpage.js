@@ -50,19 +50,23 @@ function displayObjectFromLS() {
 			if (existingProducts == null) existingProducts = [];
 
 			let item = new AddedProduct(book.title, book.price, book.quantity, book.id);
-
+			let index = 0;
+			let productTest = false;
 			$.each(existingProducts, (i, product) => {
 				if (product.id == item.id) {
-					let objectToRemove = existingProducts.indexOf(book);
-					existingProducts.splice(objectToRemove, 1);
+					productTest = true;
+					index = i;
 				}
 			});
+
+			if (productTest === true) {
+				existingProducts.splice(index, 1);
+			}
 
 			existingProducts.push(item);
 
 			localStorage.setItem('addedProductsList', JSON.stringify(addedProductsList));
 			localStorage.setItem('addedProductsList', JSON.stringify(existingProducts));
-
 			window.location.assign('checkout.html');
 		});
 	});
