@@ -5,17 +5,7 @@ $(function () {
 		$('<div>')
 			.attr('id', 'checkoutItem')
 			.html(
-				'<p>' +
-					book.title +
-					' ' +
-					'<div id="addedProductQuantity">' +
-					' <i class="fas fa-minus-circle" id="removeItem"></i> ' +
-					'<p id="quantity">' +
-					book.quantity +
-					'</p>' +
-					' <i class="fas fa-plus-circle" id="addItem"></i></div> ' +
-					'<p>' +
-					'</div>'
+				'<p>' + book.title + ' ' + '<div id="addedProductQuantity">' + '<i class="fas fa-minus-circle" id="removeItem"></i> ' + '<p id="quantity">' + book.quantity + '</p>' + '<i class="fas fa-plus-circle" id="addItem"></i></div> ' + '<p>' + '</div>'
 			)
 			.appendTo($('#checkoutBox'));
 
