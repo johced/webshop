@@ -25,20 +25,21 @@ a {
     @include desktop {
         position: absolute;
         top:0;
+        right:0;
         padding: 0 100px; 
-        width: 100%;
+        width: 50%;
     }
     & nav{
         margin-top: 50px;
         position: absolute;
         top: 50px;
-        right:-100%;
+        right: -100%;
         width: 100%;
         height: auto;
-        background-color: rgba(0,0,0,.4);
+        background-color: rgba(0,0,0,.7);
         transition: all .5s ease-in-out;
         @include desktop {
-            top:0;
+            top: 0;
             background-color: rgba(0,0,0,0);
         }
         & ul{
@@ -90,8 +91,87 @@ a {
 @include desktop {
     #main-nav {
         nav#desktop-only {
-            right: 0;
+            right: 60px;
         }
     }
 }
 
+.cart {
+    position: absolute;;
+    top:30px;
+    right:80px;
+    font-family: Arial, Helvetica, sans-serif;
+    @include desktop {
+        top: 55px;
+        right: 10px;
+        cursor: pointer;
+    }
+    i {
+        font-size:40px;
+        color:black;
+        @include desktop {
+            font-size: 30px;
+        }
+    }
+    
+}
+.total-text {
+    font-family: Arial, Helvetica, sans-serif;
+    p{
+        display: inline;
+    }
+}
+
+#cart-header {
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+#cart-items{
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    right: 0;
+    top: 100px;
+    background-color: white;
+    padding: 30px;
+    width: 100%;
+    z-index: 1;
+}
+
+.buttons {
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    a {
+        color: white;
+        font-size: 15px;
+    }
+}
+
+.continue-btn {
+    background-color: rgb(0, 89, 255);
+}
+
+.checkout-btn {
+    background-color: green;
+    float: right;
+}
+.remove{
+    background-color: gray;
+    border-radius: 3px;
+    border: none;
+    color: white;
+    margin: 0px 5px;
+    padding: 3px;
+    float: right;
+}
+
+#list-item li{
+    margin: 10px 0px;
+    list-style-type: none;
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 5px;
+}
