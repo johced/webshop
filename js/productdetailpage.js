@@ -42,11 +42,23 @@ $(function () {
 				
 				$("#total-price").html("<b>"+ totalPrice +" "+"kr" +"</b>");
 				
+				
 				$(".remove").on("click", function () {
 					$(this).parent().remove();
+					
+					$("#items-basket").html("(" + ($("#list-item").children().length) + ")");
+					
+					let totalPrice = 0;
+					$(".eachPrice").each(function (){ 
+						let eachPrice = parseFloat(book.price);
+						totalPrice += eachPrice;
+					});
+					
+					$("#total-price").html("<b>"+ totalPrice +" "+"kr" +"</b>");
 					
 				});
 			});
 		});
 	});
+	
 	
