@@ -29,6 +29,7 @@
 		border: none;
 		border-radius: 5px;
 		color: white;
+		cursor: pointer;
 	}
 
 	& p {
@@ -73,6 +74,10 @@
 	& p {
 		color: red;
 	}
+
+	& #quantity {
+		color: black;
+	}
 }
 
 #productLeft {
@@ -93,6 +98,10 @@
 	& p {
 		padding-bottom: 10px;
 	}
+
+	& button {
+		cursor: pointer;
+	}
 }
 
 #productDescription {
@@ -101,4 +110,18 @@
 	@include desktop {
 		width: 70%;
 	}
+}
+
+#quantityBox {
+	display: flex;
+	justify-content: space-evenly;
+	width: 80px;
+	padding-top: 10px;
+}
+
+#removeItem {
+	cursor: pointer;
+}
+#addItem {
+	cursor: pointer;
 }
