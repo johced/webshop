@@ -43,7 +43,7 @@ $(function () {
     });
     
     updateCart();
-   
+    
 });
 
 function updateCart() {
@@ -58,12 +58,21 @@ function updateCart() {
         let removeBtn = "<button class='remove'> X </button>";
         let price = "<span class='eachPrice'>" + (parseFloat(book.price)) + "</span>";
         let quantity = book.quantity;
-		$('<li id="book-'+book.id+'">'+" "+ title +" "+ "<b>" + price +"kr" + "</b>"+ '<div id="quantityBox">' +
-		'<i class="fas fa-minus-circle" id="removeItemInCart"></i>' +
-		'<p id="quantity">' + quantity +'</p>' +
-		'<i class="fas fa-plus-circle" id="addItemInCart"></i>' +
-        '</div>' + removeBtn + "</li>").appendTo('#list-item');	
-        
+        let updateBtn = "<button class=update>Update</button>";
+        $('<li id="book-'+book.id+'">'+" "+ title +" "+ "<b>" + price +"kr" + "</b>"+ '<div id="quantityBox">' +
+        '<i class="fas fa-minus-circle" id="removeItemInCart"></i>' +
+        '<p id="quantity">' + quantity +'</p>' +
+        '<i class="fas fa-plus-circle" id="addItemInCart"></i>' +
+        '</div>' +  updateBtn + removeBtn + "</li>").appendTo('#list-item');	
+        $("#book-" + book.id + " .update").on('click', () => {
+            let quantity = $('#quantity').html();
+            console.log(quantity);
+            existingProducts[i].quantity = parseInt(quantity);
+            localStorage.setItem('addedProductsList', JSON.stringify(existingProducts));
+            
+            updateCart();
+            
+        });
         $("#book-" + book.id + " .remove").on('click', function () {
             let existingProducts = JSON.parse(localStorage.getItem('addedProductsList'));
             let index = -1;
@@ -75,9 +84,9 @@ function updateCart() {
             
             existingProducts.splice(index, 1);
             localStorage.setItem('addedProductsList', JSON.stringify(existingProducts));
-
+            
             updateCart();
-    
+            
         });
         
         totalPrice += parseFloat(book.price) * book.quantity;
@@ -95,7 +104,7 @@ function updateCart() {
 //         existingProducts = [];
 //     }
 //     let item = new AddedProduct(book.title, book.price, book.quantity, book.id);
-    
+
 //     let index = 0;
 //     let productInCart = false;
 //     $.each(existingProducts, (i, product) => {
@@ -104,15 +113,15 @@ function updateCart() {
 //             index = i;
 //         }
 //     });
-    
+
 //     if (productInCart === true) {
 //         existingProducts.splice(index, 1);
 //     }
-    
+
 //     if(!remove) {
 //         existingProducts.push(item);
 //     }    
-    
+
 //     //localStorage.setItem('addedProductsList', JSON.stringify(addedProductsList));
 //     localStorage.setItem('addedProductsList', JSON.stringify(existingProducts));
 // }
