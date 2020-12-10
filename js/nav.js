@@ -58,21 +58,53 @@ function updateCart() {
         let removeBtn = "<button class='remove'> X </button>";
         let price = "<span class='eachPrice'>" + (parseFloat(book.price)) + "</span>";
         let quantity = book.quantity;
-        let updateBtn = "<button class=update>Update</button>";
-        $('<li id="book-'+book.id+'">'+" "+ title +" "+ "<b>" + price +"kr" + "</b>"+ '<div id="quantityBox">' +
+        // let updateBtn = "<button class='update'>Update</button>";
+        $('<li id="book-'+book.id+'">'+" "+ title +" "+ "<b>" + price +" "+"kr" + "</b>"+ '<div id="quantityBox">' +
         '<i class="fas fa-minus-circle" id="removeItemInCart"></i>' +
-        '<p id="quantity">' + quantity +'</p>' +
-        '<i class="fas fa-plus-circle" id="addItemInCart"></i>' +
-        '</div>' +  updateBtn + removeBtn + "</li>").appendTo('#list-item');	
-        $("#book-" + book.id + " .update").on('click', () => {
-            let quantity = $('#quantity').html();
+        '<p id="quantityInCart">' + quantity +'</p>' +
+        '<i class="fas fa-plus-circle" id="addItemInCart"></i>' + 
+        '</div>' + removeBtn + "</li>").appendTo('#list-item');	
+        
+        // $("#book-" + book.id + " .update").on('click', () => {
+        //     let quantity = $('#book-' + book.id + ' #quantity').html();
+        //     console.log(quantity);
+        //     existingProducts[i].quantity = parseInt(quantity);
+        //     localStorage.setItem('addedProductsList', JSON.stringify(existingProducts));
+            
+        //     updateCart();
+        // });
+        
+        $("#book-" + book.id + " #removeItemInCart").on('click', () => {
+            console.log(book.id)
+            let reduceNum = $('#book-' + book.id + ' #quantityInCart');
+            if (book.quantity == 1) {
+            } else {
+                book.quantity--;
+                reduceNum.html(book.quantity);
+            }
+            let quantity = $('#book-' + book.id + ' #quantityInCart').html();
             console.log(quantity);
             existingProducts[i].quantity = parseInt(quantity);
             localStorage.setItem('addedProductsList', JSON.stringify(existingProducts));
             
             updateCart();
-            
         });
+        
+        $("#book-" + book.id + " #addItemInCart").on('click' , () => {
+            console.log(book.id);
+            let addNum = $('#book-' + book.id + ' #quantityInCart');
+            book.quantity++;
+            addNum.html(book.quantity);
+
+            let quantity = $('#book-' + book.id + ' #quantityInCart').html();
+            console.log(quantity);
+            existingProducts[i].quantity = parseInt(quantity);
+            localStorage.setItem('addedProductsList', JSON.stringify(existingProducts));
+            
+            updateCart();
+        });
+        
+        
         $("#book-" + book.id + " .remove").on('click', function () {
             let existingProducts = JSON.parse(localStorage.getItem('addedProductsList'));
             let index = -1;
