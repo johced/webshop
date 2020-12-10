@@ -9,7 +9,7 @@ $(function () {
     <li><a href="#">Contact Us</a></li>
     </ul>
     </nav>
-    <div id="cart" class="cart" deta-totalitems="0">
+    <div id="cart" class="cart">
     <i class="fas fa-shopping-basket" id="shopping-cart"></i>
     <div class="total-text">
     <p>Items</p>
@@ -17,10 +17,11 @@ $(function () {
     </div>
     </div>
     <div id="cart-items">
+    <i class="fas fa-times close"></i>
     <p id="cart-header">Shopping cart</p>
     <ol id="list-item">
     </ol>
-    <div class="total-text">
+    <div class="total-price">
     <p>Total: </p>
     <p id="total-price"></p>
     </div>
@@ -40,9 +41,13 @@ $(function () {
     
     $('#cart-items').hide();
    
-    $('.cart').on('click', function () {
+    $('.cart').on('click', () => {
         $('nav').removeClass('active');
         $('#cart-items').slideToggle();
+    });
+    
+    $('.close').on('click', () => {
+        $('#cart-items').slideUp();
     });
     
     updateCart();
@@ -58,15 +63,15 @@ function updateCart() {
     
     $.each(existingProducts, (i, book) => {
         let title = book.title;
-        let removeBtn = "<button class='remove'> X </button>";
-        let price = "<span class='eachPrice'>" + (parseFloat(book.price)) + "</span>";
+        let removeBtn = "<i class='fas fa-trash-alt remove'></i>";
+        let price = "<span class='eachPrice'>" + (parseFloat(book.price)) +" "+"kr"+ "</span>";
         let quantity = book.quantity;
         // let updateBtn = "<button class='update'>Update</button>";
-        $('<li id="book-'+book.id+'">'+" "+ title +" "+ "<b>" + price +" "+"kr" + "</b>"+ '<div id="quantityBox">' +
+        $('<li id="book-'+book.id+'">'+" "+ title +" "+ price + removeBtn + '<div id="quantityBox">' +
         '<i class="fas fa-minus-circle" id="removeItemInCart"></i>' +
         '<p id="quantityInCart">' + quantity +'</p>' +
         '<i class="fas fa-plus-circle" id="addItemInCart"></i>' + 
-        '</div>' + removeBtn + "</li>").appendTo('#list-item');	
+        '</div>' +  "</li>").appendTo('#list-item');	
         
         // $("#book-" + book.id + " .update").on('click', () => {
         //     let quantity = $('#book-' + book.id + ' #quantity').html();
@@ -78,7 +83,7 @@ function updateCart() {
         // });
         
         $("#book-" + book.id + " #removeItemInCart").on('click', () => {
-            console.log(book.id)
+            // console.log(book.id)
             let reduceNum = $('#book-' + book.id + ' #quantityInCart');
             if (book.quantity == 1) {
             } else {
@@ -86,22 +91,22 @@ function updateCart() {
                 reduceNum.html(book.quantity);
             }
             let quantity = $('#book-' + book.id + ' #quantityInCart').html();
-            console.log(quantity);
-            existingProducts[i].quantity = parseInt(quantity);
+            // console.log(quantity);
+            book.quantity = parseInt(quantity);
             localStorage.setItem('addedProductsList', JSON.stringify(existingProducts));
             
             updateCart();
         });
         
         $("#book-" + book.id + " #addItemInCart").on('click' , () => {
-            console.log(book.id);
+            // console.log(book.id);
             let addNum = $('#book-' + book.id + ' #quantityInCart');
             book.quantity++;
             addNum.html(book.quantity);
 
             let quantity = $('#book-' + book.id + ' #quantityInCart').html();
-            console.log(quantity);
-            existingProducts[i].quantity = parseInt(quantity);
+            // console.log(quantity);
+            book.quantity = parseInt(quantity);
             localStorage.setItem('addedProductsList', JSON.stringify(existingProducts));
             
             updateCart();
@@ -129,34 +134,7 @@ function updateCart() {
         
     });
     
-    $("#total-price").html("<b>"+ totalPrice +" "+"kr" +"</b>");
+    $("#total-price").html( totalPrice +" "+"kr");
     $('#items-basket').html(totalQuantity);
 }
 
-// function changeProductsList(book, remove) {
-//     let existingProducts = JSON.parse(localStorage.getItem('addedProductsList'));
-//     if (existingProducts == null) {
-//         existingProducts = [];
-//     }
-//     let item = new AddedProduct(book.title, book.price, book.quantity, book.id);
-
-//     let index = 0;
-//     let productInCart = false;
-//     $.each(existingProducts, (i, product) => {
-//         if (product.id == item.id) {
-//             productInCart = true;
-//             index = i;
-//         }
-//     });
-
-//     if (productInCart === true) {
-//         existingProducts.splice(index, 1);
-//     }
-
-//     if(!remove) {
-//         existingProducts.push(item);
-//     }    
-
-//     //localStorage.setItem('addedProductsList', JSON.stringify(addedProductsList));
-//     localStorage.setItem('addedProductsList', JSON.stringify(existingProducts));
-// }
