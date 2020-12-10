@@ -98,28 +98,47 @@ a {
 
 .cart {
     position: absolute;;
-    top:30px;
-    right:80px;
+    top: 30px;
+    right: 80px;
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
     @include desktop {
         top: 55px;
-        right: 10px;
+        right: 15px;
         cursor: pointer;
+        font-size: 12px;
     }
     i {
         font-size:40px;
         color:black;
         @include desktop {
             font-size: 30px;
+            margin-right: 20px;
         }
     }
     
 }
-.total-text {
-    p {
-        display: inline;
+.cart-counter {
+    position: absolute;
+    left: 30px;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    color: white;
+    background: orangered;
+    text-align: center;
+    border-radius: 50%;
+    padding:3px;
+    @include desktop {
+        width: 15px;
+        height: 15px;
+        position: absolute;
+        left: 20px;
+        width: 20px;
+        height: 20px;
     }
 }
+
 .total-price {
     position: absolute;
     right: 70px;
@@ -153,12 +172,23 @@ a {
     font-weight: bold;
 }
 
+#removeItemInCart {
+    cursor: pointer;
+}
+
+#addItemInCart {
+    cursor: pointer
+}
+
 .close {
     font-size: 30px;
     float: right;
     margin: 0;
     padding: 0;
     cursor: pointer;
+    @include desktop {
+        margin-right: 10px;
+    }
 }
 
 .buttons {
@@ -185,6 +215,7 @@ a {
     size: 30px;
     margin-right: 10px;
     float: right;
+    cursor: pointer;
 }
 
 #list-item li{

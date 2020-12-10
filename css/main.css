@@ -86,21 +86,41 @@ a {
   position: absolute;
   top: 30px;
   right: 80px;
-  font-family: Arial, Helvetica, sans-serif; }
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px; }
   @media screen and (min-width: 768px) {
     .cart {
       top: 55px;
-      right: 10px;
-      cursor: pointer; } }
+      right: 15px;
+      cursor: pointer;
+      font-size: 12px; } }
   .cart i {
     font-size: 40px;
     color: black; }
     @media screen and (min-width: 768px) {
       .cart i {
-        font-size: 30px; } }
+        font-size: 30px;
+        margin-right: 20px; } }
 
-.total-text p {
-  display: inline; }
+.cart-counter {
+  position: absolute;
+  left: 30px;
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  color: white;
+  background: orangered;
+  text-align: center;
+  border-radius: 50%;
+  padding: 3px; }
+  @media screen and (min-width: 768px) {
+    .cart-counter {
+      width: 15px;
+      height: 15px;
+      position: absolute;
+      left: 20px;
+      width: 20px;
+      height: 20px; } }
 
 .total-price {
   position: absolute;
@@ -130,12 +150,21 @@ a {
   right: 70px;
   font-weight: bold; }
 
+#removeItemInCart {
+  cursor: pointer; }
+
+#addItemInCart {
+  cursor: pointer; }
+
 .close {
   font-size: 30px;
   float: right;
   margin: 0;
   padding: 0;
   cursor: pointer; }
+  @media screen and (min-width: 768px) {
+    .close {
+      margin-right: 10px; } }
 
 .buttons {
   padding: 10px;
@@ -157,7 +186,8 @@ a {
   color: red;
   size: 30px;
   margin-right: 10px;
-  float: right; }
+  float: right;
+  cursor: pointer; }
 
 #list-item li {
   margin: 10px 0px;

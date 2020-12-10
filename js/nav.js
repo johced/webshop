@@ -10,10 +10,9 @@ $(function () {
     </ul>
     </nav>
     <div id="cart" class="cart">
-    <i class="fas fa-shopping-basket" id="shopping-cart"></i>
     <div class="total-text">
-    <p>Items</p>
-    <p id="items-basket"></p>
+    <i class="fas fa-shopping-basket" id="shopping-cart"></i>
+    <span class='cart-counter' id="items-basket"></span>
     </div>
     </div>
     <div id="cart-items">
@@ -40,7 +39,7 @@ $(function () {
     });
     
     $('#cart-items').hide();
-   
+    
     $('.cart').on('click', () => {
         $('nav').removeClass('active');
         $('#cart-items').slideToggle();
@@ -78,7 +77,7 @@ function updateCart() {
         //     console.log(quantity);
         //     existingProducts[i].quantity = parseInt(quantity);
         //     localStorage.setItem('addedProductsList', JSON.stringify(existingProducts));
-            
+        
         //     updateCart();
         // });
         
@@ -103,7 +102,7 @@ function updateCart() {
             let addNum = $('#book-' + book.id + ' #quantityInCart');
             book.quantity++;
             addNum.html(book.quantity);
-
+            
             let quantity = $('#book-' + book.id + ' #quantityInCart').html();
             // console.log(quantity);
             book.quantity = parseInt(quantity);
@@ -135,6 +134,6 @@ function updateCart() {
     });
     
     $("#total-price").html( totalPrice +" "+"kr");
-    $('#items-basket').html(totalQuantity);
+    $('#items-basket').html( totalQuantity);
 }
 
