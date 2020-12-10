@@ -1,24 +1,6 @@
 $(function () {
     let logoDiv = $('#main-logo');
-    $('<a>').attr('href','../index.html').attr('id','books-logo').html('BOOKS.').appendTo(logoDiv);
-    
-    // let mainNav = $('#main-nav');
-    // let navTag = $('<nav>').addClass('active').attr('id', 'desktop-only').appendTo(mainNav);
-    
-    // let ulTag = $('<ul>').appendTo(navTag);
-    // let aboutLink = $('<li>').appendTo(ulTag);
-    // let productLink = $('<li>').appendTo(ulTag);
-    // let contactLink = $('<li>').appendTo(ulTag);
-    // let cartLink = $('<li>').appendTo(ulTag);
-    
-    // $('<a>').attr('href', '#').html('About Us').appendTo(aboutLink); 
-    // $('<a>').attr('href', '../html/productslist.html').html('Products').appendTo(productLink); 
-    // $('<a>').attr('href', '#').html('Contact Us').appendTo(contactLink); 
-    // let cartAnchor = $('<a>').attr('href', '../html/checkout.html').appendTo(cartLink)
-    // $('<i>').addClass('fas fa-shopping-basket').attr('id', 'shopping-cart').appendTo(cartAnchor); 
-    
-    // let divTag = $('<div>').addClass('menu-toggle').appendTo(mainNav);
-    // $('<i>').addClass('fas fa-bars').appendTo(divTag);
+    $('<a>').attr('href','../index.html').attr('id','books-logo').html('BOOKS.').appendTo(logoDiv)
     
     let navDivHtml = `<nav id="desktop-only">
     <ul>
@@ -67,7 +49,7 @@ $(function () {
 function updateCart() {
     let existingProducts = JSON.parse(localStorage.getItem('addedProductsList'));
     
-    // $('#list-item').html("");
+    $('#list-item').html("");
     let totalPrice = 0;
     let totalQuantity = 0;
     
@@ -82,9 +64,8 @@ function updateCart() {
         '<i class="fas fa-plus-circle" id="addItemInCart"></i>' +
         '</div>' + removeBtn + "</li>").appendTo('#list-item');
         
-        $("#book-" + book.id + ".remove").on("click", function () {
+        $("#book-" + book.id + ".remove").on('click', function () {
             let existingProducts = JSON.parse(localStorage.getItem('addedProductsList'));
-            
             let index = -1;
             $.each(existingProducts, (i, product) => {
                 if (product.id == book.id) {                    
@@ -94,6 +75,8 @@ function updateCart() {
             
             existingProducts.splice(index, 1);
             localStorage.setItem('addedProductsList', JSON.stringify(existingProducts));
+
+            updateCart();
     
         });
         
