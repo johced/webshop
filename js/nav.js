@@ -58,13 +58,13 @@ function updateCart() {
         let removeBtn = "<button class='remove'> X </button>";
         let price = "<span class='eachPrice'>" + (parseFloat(book.price)) + "</span>";
         let quantity = book.quantity;
-        $('<li>'+" "+ title +" "+ "<b>" + price +"kr" + "</b>"+ '<div id="quantityBox">' +
-        '<i class="fas fa-minus-circle" id="removeItemInCart"></i>' +
-        '<p id="quantity">' + quantity +'</p>' +
-        '<i class="fas fa-plus-circle" id="addItemInCart"></i>' +
-        '</div>' + removeBtn + "</li>").appendTo('#list-item');
+		$('<li id="book-'+book.id+'">'+" "+ title +" "+ "<b>" + price +"kr" + "</b>"+ '<div id="quantityBox">' +
+		'<i class="fas fa-minus-circle" id="removeItemInCart"></i>' +
+		'<p id="quantity">' + quantity +'</p>' +
+		'<i class="fas fa-plus-circle" id="addItemInCart"></i>' +
+        '</div>' + removeBtn + "</li>").appendTo('#list-item');	
         
-        $("#book-" + book.id + ".remove").on('click', function () {
+        $("#book-" + book.id + " .remove").on('click', function () {
             let existingProducts = JSON.parse(localStorage.getItem('addedProductsList'));
             let index = -1;
             $.each(existingProducts, (i, product) => {
@@ -89,30 +89,30 @@ function updateCart() {
     $('#items-basket').html(totalQuantity);
 }
 
-function changeProductsList(book, remove) {
-    let existingProducts = JSON.parse(localStorage.getItem('addedProductsList'));
-    if (existingProducts == null) {
-        existingProducts = [];
-    }
-    let item = new AddedProduct(book.title, book.price, book.quantity, book.id);
+// function changeProductsList(book, remove) {
+//     let existingProducts = JSON.parse(localStorage.getItem('addedProductsList'));
+//     if (existingProducts == null) {
+//         existingProducts = [];
+//     }
+//     let item = new AddedProduct(book.title, book.price, book.quantity, book.id);
     
-    let index = 0;
-    let productInCart = false;
-    $.each(existingProducts, (i, product) => {
-        if (product.id == item.id) {
-            productInCart = true;
-            index = i;
-        }
-    });
+//     let index = 0;
+//     let productInCart = false;
+//     $.each(existingProducts, (i, product) => {
+//         if (product.id == item.id) {
+//             productInCart = true;
+//             index = i;
+//         }
+//     });
     
-    if (productInCart === true) {
-        existingProducts.splice(index, 1);
-    }
+//     if (productInCart === true) {
+//         existingProducts.splice(index, 1);
+//     }
     
-    if(!remove) {
-        existingProducts.push(item);
-    }    
+//     if(!remove) {
+//         existingProducts.push(item);
+//     }    
     
-    //localStorage.setItem('addedProductsList', JSON.stringify(addedProductsList));
-    localStorage.setItem('addedProductsList', JSON.stringify(existingProducts));
-}
+//     //localStorage.setItem('addedProductsList', JSON.stringify(addedProductsList));
+//     localStorage.setItem('addedProductsList', JSON.stringify(existingProducts));
+// }

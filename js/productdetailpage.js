@@ -22,10 +22,7 @@ function displayObjectFromLS() {
 			'<p id="quantity">' +
 			book.quantity +
 			'</p>' +
-			'<i class="fas fa-plus-circle" id="addItem">'.on('click', { book: book }, () => {
-				book.quantity++;
-				$('#quantity').html(book.quantity);
-			}) +'</i>'+ 
+			'<i class="fas fa-plus-circle" id="addItem"></i>'+ 
 			'</div>' +
 			'<button type="button" id="buyButton" alt="button">' +
 			'Add' +
@@ -36,23 +33,21 @@ function displayObjectFromLS() {
 			'</h5></div>'
 			)
 			.appendTo($('#main-area'));
-
-			function removeItem(book) {
-				$('#removeItem').on('click', { book: book }, () => {
-					if (book.quantity == 1) {
-					} else {
-						book.quantity--;
-						$('#quantity').html(book.quantity);
-					}
-				});
-			}
-		
-			// function addItem(book) {
-			// 	$('#addItem').on('click', { book: book }, () => {
-			// 		book.quantity++;
-			// 		$('#quantity').html(book.quantity);
-			// 	});
-			// }
+			
+			
+			$('#removeItem').on('click', { book: book }, () => {
+				if (book.quantity == 1) {
+				} else {
+					book.quantity--;
+					$('#quantity').html(book.quantity);
+				}
+			});
+			
+			$('#addItem').on('click', { book: book }, () => {
+				book.quantity++;
+				$('#quantity').html(book.quantity);
+			});
+			
 			
 			$('#buyButton').on('click', { book: book }, () => {
 				let existingProducts = JSON.parse(localStorage.getItem('addedProductsList'));
