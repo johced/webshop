@@ -71,57 +71,9 @@ function displayObjectFromLS() {
 				
 				localStorage.setItem('addedProductsList', JSON.stringify(addedProductsList));
 				localStorage.setItem('addedProductsList', JSON.stringify(existingProducts));
+
+				updateCart();
 				
-				let title = book.title;
-				let removeBtn = "<button class='remove'> X </button>";
-				let price = "<span class='eachPrice'>" + (parseFloat(book.price)) + "</span>";
-				let quantity = book.quantity;
-				$('<li>'+" "+ title +" "+ "<b>" + price +"kr" + "</b>"+ '<div id="quantityBox">' +
-				'<i class="fas fa-minus-circle" id="removeItemInCart"></i>' +
-				'<p id="quantity">' + quantity +'</p>' +
-				'<i class="fas fa-plus-circle" id="addItemInCart"></i>' +
-				'</div>' + removeBtn + "</li>").appendTo('#list-item');
-				
-				
-				$('#removeItemInCart').on('click', { book: book }, () => {
-					if (book.quantity == 1) {
-					} else {
-						book.quantity--;
-						$('#quantity').html(book.quantity);
-					}
-				});
-				
-				$('#addItemInCart').on('click', { book: book }, () => {
-					book.quantity++;
-					$('#quantity').html(book.quantity);
-				});
-				
-				
-				$("#items-basket").html("(" + book.quantity + ")");
-				
-				let totalPrice = 0;
-				$(".eachPrice").each(function (){ 
-					let eachPrice = parseFloat(book.price) * book.quantity;
-					totalPrice += eachPrice;
-				});
-				
-				$("#total-price").html("<b>"+ totalPrice +" "+"kr" +"</b>");
-				
-				
-				$(".remove").on("click", function () {
-					$(this).parent().remove();
-					
-					$("#items-basket").html("(" + ($("#list-item").children().length) + ")");
-					
-					let totalPrice = 0;
-					$(".eachPrice").each(function (){ 
-						let eachPrice = parseFloat(book.price) * book.quantity;
-						totalPrice += eachPrice;
-					});
-					
-					$("#total-price").html("<b>"+ totalPrice +" "+"kr" +"</b>");
-					
-				});
 			});
 		});
 	}
