@@ -1,24 +1,6 @@
 $(function () {
     let logoDiv = $('#main-logo');
-    $('<a>').attr('href','../index.html').attr('id','books-logo').html('BOOKS.').appendTo(logoDiv);
-    
-    // let mainNav = $('#main-nav');
-    // let navTag = $('<nav>').addClass('active').attr('id', 'desktop-only').appendTo(mainNav);
-    
-    // let ulTag = $('<ul>').appendTo(navTag);
-    // let aboutLink = $('<li>').appendTo(ulTag);
-    // let productLink = $('<li>').appendTo(ulTag);
-    // let contactLink = $('<li>').appendTo(ulTag);
-    // let cartLink = $('<li>').appendTo(ulTag);
-    
-    // $('<a>').attr('href', '#').html('About Us').appendTo(aboutLink); 
-    // $('<a>').attr('href', '../html/productslist.html').html('Products').appendTo(productLink); 
-    // $('<a>').attr('href', '#').html('Contact Us').appendTo(contactLink); 
-    // let cartAnchor = $('<a>').attr('href', '../html/checkout.html').appendTo(cartLink)
-    // $('<i>').addClass('fas fa-shopping-basket').attr('id', 'shopping-cart').appendTo(cartAnchor); 
-    
-    // let divTag = $('<div>').addClass('menu-toggle').appendTo(mainNav);
-    // $('<i>').addClass('fas fa-bars').appendTo(divTag);
+    $('<a>').attr('href','../index.html').attr('id','books-logo').html('BOOKS.').appendTo(logoDiv)
     
     let navDivHtml = `<nav id="desktop-only">
     <ul>
@@ -57,9 +39,80 @@ $(function () {
     
     $('#cart-items').slideUp();
     $('.cart').on('click', function () {
-    $('#cart-items').slideToggle();
+        $('#cart-items').slideToggle();
     });
-
-    $('#items-basket').text("(" + ($('#list-item').children().length) + ")");
-
+    
+    updateCart();
+   
 });
+
+function updateCart() {
+    let existingProducts = JSON.parse(localStorage.getItem('addedProductsList'));
+    
+    $('#list-item').html("");
+    let totalPrice = 0;
+    let totalQuantity = 0;
+    
+    $.each(existingProducts, (i, book) => {
+        let title = book.title;
+        let removeBtn = "<button class='remove'> X </button>";
+        let price = "<span class='eachPrice'>" + (parseFloat(book.price)) + "</span>";
+        let quantity = book.quantity;
+        $('<li>'+" "+ title +" "+ "<b>" + price +"kr" + "</b>"+ '<div id="quantityBox">' +
+        '<i class="fas fa-minus-circle" id="removeItemInCart"></i>' +
+        '<p id="quantity">' + quantity +'</p>' +
+        '<i class="fas fa-plus-circle" id="addItemInCart"></i>' +
+        '</div>' + removeBtn + "</li>").appendTo('#list-item');
+        
+        $("#book-" + book.id + ".remove").on('click', function () {
+            let existingProducts = JSON.parse(localStorage.getItem('addedProductsList'));
+            let index = -1;
+            $.each(existingProducts, (i, product) => {
+                if (product.id == book.id) {                    
+                    index = i;
+                }
+            });
+            
+            existingProducts.splice(index, 1);
+            localStorage.setItem('addedProductsList', JSON.stringify(existingProducts));
+
+            updateCart();
+    
+        });
+        
+        totalPrice += parseFloat(book.price) * book.quantity;
+        totalQuantity += book.quantity;
+        
+    });
+    
+    $("#total-price").html("<b>"+ totalPrice +" "+"kr" +"</b>");
+    $('#items-basket').html(totalQuantity);
+}
+
+function changeProductsList(book, remove) {
+    let existingProducts = JSON.parse(localStorage.getItem('addedProductsList'));
+    if (existingProducts == null) {
+        existingProducts = [];
+    }
+    let item = new AddedProduct(book.title, book.price, book.quantity, book.id);
+    
+    let index = 0;
+    let productInCart = false;
+    $.each(existingProducts, (i, product) => {
+        if (product.id == item.id) {
+            productInCart = true;
+            index = i;
+        }
+    });
+    
+    if (productInCart === true) {
+        existingProducts.splice(index, 1);
+    }
+    
+    if(!remove) {
+        existingProducts.push(item);
+    }    
+    
+    //localStorage.setItem('addedProductsList', JSON.stringify(addedProductsList));
+    localStorage.setItem('addedProductsList', JSON.stringify(existingProducts));
+}

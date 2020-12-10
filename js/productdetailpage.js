@@ -1,7 +1,6 @@
 $(function () {
 	displayObjectFromLS();
 });
-
 function displayObjectFromLS() {
 	let productDetailObjectAsTextFromLS = sessionStorage.getItem('productDetailObject');
 	let productDetailObjectFromLS = JSON.parse(productDetailObjectAsTextFromLS);
@@ -19,11 +18,14 @@ function displayObjectFromLS() {
 			book.price +
 			'</p>' +
 			'<div id="quantityBox">' +
-			'<i class="fas fa-minus-circle" id="removeItem"></i>' +
+			'<i class="fas fa-minus-circle" id="removeItem" onclick="removeItem()"></i>' +
 			'<p id="quantity">' +
 			book.quantity +
 			'</p>' +
-			'<i class="fas fa-plus-circle" id="addItem"></i>' +
+			'<i class="fas fa-plus-circle" id="addItem">'.on('click', { book: book }, () => {
+				book.quantity++;
+				$('#quantity').html(book.quantity);
+			}) +'</i>'+ 
 			'</div>' +
 			'<button type="button" id="buyButton" alt="button">' +
 			'Add' +
@@ -34,25 +36,30 @@ function displayObjectFromLS() {
 			'</h5></div>'
 			)
 			.appendTo($('#main-area'));
-			
-			$('#removeItem').on('click', { book: book }, () => {
-				if (book.quantity == 1) {
-				} else {
-					book.quantity--;
-					$('#quantity').html(book.quantity);
-				}
-			});
-			
-			$('#addItem').on('click', { book: book }, () => {
-				book.quantity++;
-				$('#quantity').html(book.quantity);
-			});
+
+			function removeItem(book) {
+				$('#removeItem').on('click', { book: book }, () => {
+					if (book.quantity == 1) {
+					} else {
+						book.quantity--;
+						$('#quantity').html(book.quantity);
+					}
+				});
+			}
+		
+			// function addItem(book) {
+			// 	$('#addItem').on('click', { book: book }, () => {
+			// 		book.quantity++;
+			// 		$('#quantity').html(book.quantity);
+			// 	});
+			// }
 			
 			$('#buyButton').on('click', { book: book }, () => {
 				let existingProducts = JSON.parse(localStorage.getItem('addedProductsList'));
-				if (existingProducts == null) existingProducts = [];
-				
-				let item = new AddedProduct(book.title, book.price, book.quantity, book.id, book.totalCost);
+				if (existingProducts == null) {
+					existingProducts = [];
+				}
+				let item = new AddedProduct(book.title, book.price, book.quantity, book.id);
 				
 				let index = 0;
 				let productInCart = false;
@@ -71,61 +78,9 @@ function displayObjectFromLS() {
 				
 				localStorage.setItem('addedProductsList', JSON.stringify(addedProductsList));
 				localStorage.setItem('addedProductsList', JSON.stringify(existingProducts));
-			});
-			
-			$('#buyButton').on('click', { book: book }, () => {
-				console.log(book);
-				$('#productLeft').each(function () {
-					let title = book.title;
-					let removeBtn = "<button class='remove'> X </button>";
-					let price = "<span class='eachPrice'>" + (parseFloat(book.price)) + "</span>";
-					let quantity = book.quantity;
-					$('<li>'+" "+ title +" "+ "<b>" + price +"kr" + "</b>"+ '<div id="quantityBox">' +
-					'<i class="fas fa-minus-circle" id="removeItem"></i>' +
-					'<p id="quantity">' + quantity +'</p>' +
-					'<i class="fas fa-plus-circle" id="addItem"></i>' +
-					'</div>' + removeBtn + "</li>").appendTo('#list-item');
-				});
-
-				$('#removeItem').on('click', { book: book }, () => {
-					if (book.quantity == 1) {
-					} else {
-						book.quantity--;
-						$('#quantity').html(book.quantity);
-					}
-				});
 				
-				$('#addItem').on('click', { book: book }, () => {
-					book.quantity++;
-					$('#quantity').html(book.quantity);
-				});
+				updateCart();
 				
-				
-				$("#items-basket").html("(" + ($("#list-item").children().length) + ")");
-				
-				let totalPrice = 0;
-				$(".eachPrice").each(function (){ 
-					let eachPrice = parseFloat(book.price) * book.quantity;
-					totalPrice += eachPrice;
-				});
-				
-				$("#total-price").html("<b>"+ totalPrice +" "+"kr" +"</b>");
-				
-				
-				$(".remove").on("click", function () {
-					$(this).parent().remove();
-					
-					$("#items-basket").html("(" + ($("#list-item").children().length) + ")");
-					
-					let totalPrice = 0;
-					$(".eachPrice").each(function (){ 
-						let eachPrice = parseFloat(book.price) * book.quantity;
-						totalPrice += eachPrice;
-					});
-					
-					$("#total-price").html("<b>"+ totalPrice +" "+"kr" +"</b>");
-					
-				});
 			});
 		});
 	}
