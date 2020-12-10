@@ -58,6 +58,7 @@ function displayObjectFromLS() {
 		divOfDescription.appendChild(textOfDescription);
 	}
 	$('#addButton').on('click', () => {
+		$('#cart-items').slideDown();
 		let existingProducts = JSON.parse(localStorage.getItem('addedProductsList'));
 		if (existingProducts == null) {
 			existingProducts = [];

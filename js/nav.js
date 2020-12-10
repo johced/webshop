@@ -35,10 +35,13 @@ $(function () {
     
     $('.menu-toggle').on('click', function(){
         $('nav').toggleClass('active');
+        $('#cart-items').slideUp();
     });
     
-    $('#cart-items').slideUp();
+    $('#cart-items').hide();
+   
     $('.cart').on('click', function () {
+        $('nav').removeClass('active');
         $('#cart-items').slideToggle();
     });
     
