@@ -95,6 +95,7 @@ function updateCart() {
             localStorage.setItem('addedProductsList', JSON.stringify(existingProducts));
             
             updateCart();
+            addedProducts();
         });
         
         $("#book-" + book.id + " #addItemInCart").on('click' , () => {
@@ -109,6 +110,7 @@ function updateCart() {
             localStorage.setItem('addedProductsList', JSON.stringify(existingProducts));
             
             updateCart();
+            addedProducts();
         });
         
         
@@ -125,7 +127,7 @@ function updateCart() {
             localStorage.setItem('addedProductsList', JSON.stringify(existingProducts));
             
             updateCart();
-            
+            addedProducts();
         });
         
         totalPrice += parseFloat(book.price) * book.quantity;
