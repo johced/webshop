@@ -23,6 +23,10 @@ $(function () {
     <input type="text" id="city" name="city" placeholder="Bromma">
     <label for="zip">Zip</label>
     <input type="text" id="zip" name="zip" placeholder="10001">
+    <label for="country">Country</label>
+    <select id="country" name="country">
+    <option value="sweden">Sweden</option>
+    </select>
     </div>
     <div class="delivery-section">
     <h3 id="header">3.Shipping Method</h3>
@@ -37,7 +41,7 @@ $(function () {
     </div>
     
     <div class="payment-section">  
-    <h3 id="header">4.Payment Details</h3> 
+    <h3 id="header">4.Payment Details</h3>
     <label for="fname">Accepted Cards</label>
     <div class="icon-container">
     <i class="fa fa-cc-visa"></i>
@@ -48,11 +52,11 @@ $(function () {
     <label for="cardnum">Credit card number</label>
     <input type="text" id="cardnum" name="cardnumber" placeholder="****-****-****-****">
     <label for="expmonth">Exp Month</label>
-    <input type="text" id="expmonth" name="expmonth" placeholder="September">
+    <input type="text" id="expmonth" name="expmonth" placeholder="December">
     <label for="expyear">Exp Year</label>
-    <input type="text" id="expyear" name="expyear" placeholder="2018">
+    <input type="text" id="expyear" name="expyear" placeholder="2020">
     <label for="cvc">CVC</label>
-    <input type="text" id="cvc" name="cvc" placeholder="352">
+    <input type="text" id="cvc" name="cvc" placeholder="***">
     <button class=continue>Continue</button>
     </div>
     
