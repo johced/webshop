@@ -17,7 +17,7 @@ $(function () {
     </div>
     <div id="cart-items">
     <i class="fas fa-times close"></i>
-    <p id="cart-header">Shopping cart</p>
+    <h1 id="cart-header">Shopping cart</h1>
     <ol id="list-item">
     </ol>
     <div class="total-price">
