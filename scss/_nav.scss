@@ -1,3 +1,4 @@
+//logo
 #books-logo {
     margin: auto;
     text-decoration: none;
@@ -8,7 +9,7 @@
     font-family: serif;
     font-size: 40px;
 }
-
+//main-nav
 ul {
     list-style-type: none;
     padding: 0;
@@ -72,6 +73,7 @@ a {
     }
 }
 
+//hambuger-menu
 .menu-toggle{
     line-height: 100px;
     font-size: 50px;
@@ -96,6 +98,7 @@ a {
     }
 }
 
+//shopping-cart
 .cart {
     position: absolute;;
     top: 30px;
@@ -118,6 +121,8 @@ a {
     }
     
 }
+
+//shopping-cart counter
 .cart-counter {
     position: absolute;
     left: 30px;
@@ -139,16 +144,7 @@ a {
     }
 }
 
-.total-price {
-    position: absolute;
-    right: 70px;
-    font-weight: bold;
-    p{
-        display: inline;
-        margin-left: 20px;
-    }
-}
-
+//added items list in shopping-cart
 #cart-items{
     font-family: Arial, Helvetica, sans-serif;
     position: absolute;
@@ -157,6 +153,9 @@ a {
     background-color: white;
     padding: 10px 30px;
     width: 100%;
+    @include desktop {
+        width: 35vw;
+    }
 }
 
 #cart-header {
@@ -164,20 +163,6 @@ a {
     font-weight: bold;
     padding: 30px;
     text-align: center;
-}
-
-.eachPrice {
-    position: absolute;
-    right: 70px;
-    font-weight: bold;
-}
-
-#removeItemInCart {
-    cursor: pointer;
-}
-
-#addItemInCart {
-    cursor: pointer
 }
 
 .close {
@@ -188,6 +173,45 @@ a {
     cursor: pointer;
     @include desktop {
         margin-right: 10px;
+    }
+}
+
+#list-item li{
+    margin: 10px 0px;
+    list-style-type: none;
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 5px;
+}
+
+.eachPrice {
+    position: absolute;
+    right: 70px;
+}
+
+#removeItemInCart {
+    cursor: pointer;
+}
+
+#addItemInCart {
+    cursor: pointer
+}
+
+.remove{
+    color: red;
+    size: 30px;
+    margin-right: 10px;
+    float: right;
+    cursor: pointer;
+}
+
+
+.total-price {
+    position: absolute;
+    right: 60px;
+    font-weight: bold;
+    p{
+        display: inline;
+        margin-left: 20px;
     }
 }
 
@@ -210,17 +234,4 @@ a {
     background-color: green;
     float: right;
 }
-.remove{
-    color: red;
-    size: 30px;
-    margin-right: 10px;
-    float: right;
-    cursor: pointer;
-}
 
-#list-item li{
-    margin: 10px 0px;
-    list-style-type: none;
-    border-bottom: 1px solid lightgray;
-    padding-bottom: 5px;
-}

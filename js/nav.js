@@ -17,7 +17,7 @@ $(function () {
     </div>
     <div id="cart-items">
     <i class="fas fa-times close"></i>
-    <p id="cart-header">Shopping cart</p>
+    <h1 id="cart-header">Shopping cart</h1>
     <ol id="list-item">
     </ol>
     <div class="total-price">
@@ -95,6 +95,7 @@ function updateCart() {
             localStorage.setItem('addedProductsList', JSON.stringify(existingProducts));
             
             updateCart();
+            addedProducts();
         });
         
         $("#book-" + book.id + " #addItemInCart").on('click' , () => {
@@ -109,6 +110,7 @@ function updateCart() {
             localStorage.setItem('addedProductsList', JSON.stringify(existingProducts));
             
             updateCart();
+            addedProducts();
         });
         
         
@@ -125,7 +127,7 @@ function updateCart() {
             localStorage.setItem('addedProductsList', JSON.stringify(existingProducts));
             
             updateCart();
-            
+            addedProducts();
         });
         
         totalPrice += parseFloat(book.price) * book.quantity;
