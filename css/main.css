@@ -486,6 +486,9 @@ input[type=text], select {
 .opacity {
   opacity: 0.4; }
 
+#term {
+  margin-top: 20px; }
+
 header {
   width: 100vw;
   height: 90vh;

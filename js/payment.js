@@ -27,7 +27,7 @@ $(function () {
     <option value="sweden">Sweden</option>
     </select>
     </div>
-
+    
     <div id="delivery-section" class="checkout-section">
     <h3 id="header">3.Shipping Method</h3>
     <p>Delivery</p>
@@ -63,12 +63,21 @@ $(function () {
     <div id="confirmation-section" class="checkout-section">
     <h3 id="header">5.Place Order</h3>
     <div class="confirm">
+    <div id="orderNo"></div>
+    <div id="method">
     <h5>Shipping method</h5>
-    <h5>Ship To</h5>
-    <h5>Payment</h5>
-    <h5>Order Summeary</h5>
     </div>
-    <div>
+    <div id="shipTo">
+    <h5>Ship To</h5>
+    </div>
+    <div id="cardInfo">
+    <h5>Payment</h5>
+    </div>
+    <div id="summery">
+    <h5>Order Summery</h5>
+    </div>
+    </div>
+    <div id="term">
     <input type="checkbox" id="term" name="term" value="term">
     <label for="termOfSale">I have read, understood and agree to the Term of Sale</label><br>
     <input type="checkbox" id="offer" name="offer" value="offer">
@@ -81,17 +90,16 @@ $(function () {
     $('#main-area').html(checkoutHtml);
     
     addedProducts();
-
+    
     $('.continue-1').on('click', function(e) {        
         $('#information-section').addClass('flex');
         $('#delivery-section').addClass('flex');
-        $('#cart-section').addClass('opacity');
+        $('.cart-section').addClass('opacity');
         setTimeout( function() {
             window.location.hash = "#information-section"
         }, 100);
-        localStorage.setItem('addedProductsList', JSON.stringify(existingProducts));
     });
-
+    
     $('.continue-2').on('click', () => {
         $('#payment-section').addClass('flex');
         $('#information-section').addClass('opacity');
@@ -99,18 +107,67 @@ $(function () {
         setTimeout( function() {
             window.location.hash = "#payment-section"
         }, 100);
+        
+        
     });
-
+    
     $('.continue-3').on('click', () => {
         $('#confirmation-section').addClass('flex');
         $('#payment-section').addClass('opacity');
         setTimeout( function() {
             window.location.hash = "#confirmation-section"
         }, 100);
+        let orderNo = Date.now();
+        let name = $('#fname').val();
+        let email = $('#email').val();
+        let address = $('#address').val();
+        let city = $('#city').val();
+        let zip = $('#zip').val();
+        let country = $('#country').val();
+        let shipping = $("input[name='deliveryType']:checked").val();
+        let cardInfo = $('#cardnum').val();
+        
+        let order = new orderDetail(orderNo, name, email, address, city, zip, country, shipping, cardInfo);
+        console.log(order);
+        
+        orderDetailList.push(order);
+        localStorage.setItem('orderDetailList', JSON.stringify(orderDetailList));
+        
+        orderDetil();
     });
-
-
+    
+    
+    
+    
 });
+function orderDetil() {
+    let orderDetailList = JSON.parse(localStorage.getItem('orderDetailList'));
+    let existingProducts = JSON.parse(localStorage.getItem('addedProductsList'));
+    
+    $.each(orderDetailList, (i, order) => {
+        let orderNo = order.orderNo;
+        let name = order.name;
+        let email = order.email;
+        let address = order.address;
+        let city = order.city;
+        let zip = order.zip;
+        let country = order.country;
+        let shipping = order.shipping;
+        let cardInfo = order.cardInfo;
+        $('<p>Order No.:' + orderNo + '</p>').appendTo("#orderNo");
+        $('<p>' + shipping + '</p>').appendTo("#method");
+        $('<p>' + name + '</br>' + address + zip + city + country + '</p>').appendTo("#shipTo");
+        $('<p>' + cardInfo + '</p>').appendTo("#cardInfo");
+    });
+    
+    $.each(existingProducts, (i, book) => {
+        let title = book.title;
+        let price = "<span class='item-price'>" + "( Price: " + (parseFloat(book.price)) +" "+"kr )"+ "</span>";
+        let quantity = book.quantity;
+        
+        $('<p>' + title + quantity + price +  '</p>').appendTo('#summery');	
+    });
+}
 
 
 function addedProducts() {

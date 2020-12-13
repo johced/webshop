@@ -31,6 +31,7 @@
 }
 
 .checkout-section {
+    // display: flex;
     display: none;
     flex-wrap: wrap;
     flex-direction: column;
@@ -128,4 +129,8 @@ input[type=text], select {
 
 .opacity {
     opacity: 0.4;
+}
+
+#term {
+    margin-top: 20px;
 }
