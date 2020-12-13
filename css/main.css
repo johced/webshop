@@ -456,7 +456,7 @@ a {
   margin-top: 20px;
   border: none;
   border-radius: 5px;
-  background-color: gray;
+  background-color: blue;
   color: white;
   font-size: 15px;
   cursor: pointer; }
@@ -470,6 +470,8 @@ a {
   color: white;
   font-size: 15px;
   cursor: pointer; }
+  .placeOrder a {
+    color: white; }
 
 input[type=text], select {
   width: 100%;
@@ -488,6 +490,14 @@ input[type=text], select {
 
 #term {
   margin-top: 20px; }
+
+h5 {
+  font-size: 15px;
+  font-weight: bold;
+  margin: 10px 0px 5px 0px; }
+
+label {
+  margin: 5px 0 2px 0; }
 
 header {
   width: 100vw;
