@@ -1,6 +1,5 @@
 $(function () {
-    let checkoutHtml = `
-    <div class="checkout">
+    let checkoutHtml = `<div class="checkout">
     <div class="cart-section">
     <h3 id="header">1. Shopping cart</h3>
     <ol id="added-products"></ol>
@@ -8,10 +7,10 @@ $(function () {
     <p>Total: </p>
     <p id="total-amount"></p>
     </div>
-    <button class=continue>Continue</button>
+    <button class="continue-1">Continue</button>
     </div>
     
-    <div class="information-section">
+    <div id="information-section" class="checkout-section">
     <h3 id="header">2.Shipping address</h3>
     <label for="name"> Full Name</label>
     <input type="text" id="fname" name="firstname" placeholder="Kalle Anka">
@@ -28,7 +27,8 @@ $(function () {
     <option value="sweden">Sweden</option>
     </select>
     </div>
-    <div class="delivery-section">
+
+    <div id="delivery-section" class="checkout-section">
     <h3 id="header">3.Shipping Method</h3>
     <p>Delivery</p>
     <div>
@@ -37,10 +37,10 @@ $(function () {
     <input type="radio" id="express" name="deliveryType" value="express">
     <label for="express">Express 2-3 Bussiness Days - 99 kr</label><br>
     </div>
-    <button class=continue>Continue</button>
+    <button class="continue-2">Continue</button>
     </div>
     
-    <div class="payment-section">  
+    <div id="payment-section" class="checkout-section">  
     <h3 id="header">4.Payment Details</h3>
     <label for="fname">Accepted Cards</label>
     <div class="icon-container">
@@ -57,10 +57,10 @@ $(function () {
     <input type="text" id="expyear" name="expyear" placeholder="2020">
     <label for="cvc">CVC</label>
     <input type="text" id="cvc" name="cvc" placeholder="***">
-    <button class=continue>Continue</button>
+    <button class="continue-3">Continue</button>
     </div>
     
-    <div class="confirmation-section">
+    <div id="confirmation-section" class="checkout-section">
     <h3 id="header">5.Place Order</h3>
     <div class="confirm">
     <h5>Shipping method</h5>
@@ -76,11 +76,40 @@ $(function () {
     </div>
     <button class="placeOrder">Place Order</button>
     </div>
-    </div>
-    `
+    </div>`
+    
     $('#main-area').html(checkoutHtml);
     
     addedProducts();
+
+    $('.continue-1').on('click', function(e) {        
+        $('#information-section').addClass('flex');
+        $('#delivery-section').addClass('flex');
+        $('#cart-section').addClass('opacity');
+        setTimeout( function() {
+            window.location.hash = "#information-section"
+        }, 100);
+        localStorage.setItem('addedProductsList', JSON.stringify(existingProducts));
+    });
+
+    $('.continue-2').on('click', () => {
+        $('#payment-section').addClass('flex');
+        $('#information-section').addClass('opacity');
+        $('#delivery-section').addClass('opacity');
+        setTimeout( function() {
+            window.location.hash = "#payment-section"
+        }, 100);
+    });
+
+    $('.continue-3').on('click', () => {
+        $('#confirmation-section').addClass('flex');
+        $('#payment-section').addClass('opacity');
+        setTimeout( function() {
+            window.location.hash = "#confirmation-section"
+        }, 100);
+    });
+
+
 });
 
 
