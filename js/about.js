@@ -1,1 +1,5 @@
-$(function () {});
+$(function () {
+	$('#accordion').accordion({
+		collapsible: true,
+	});
+});
