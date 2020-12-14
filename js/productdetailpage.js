@@ -17,7 +17,7 @@ function displayObjectFromLS() {
 		let textOfTitle = document.createElement('h3');
 		textOfTitle.innerText = productDetailObjectFromLS[i].title;
 		let textOfPrice = document.createElement('p');
-		textOfPrice.innerText = productDetailObjectFromLS[i].price;
+		textOfPrice.innerText = productDetailObjectFromLS[i].price + " kr";
 		let divOfQuantity = document.createElement('div');
 		divOfQuantity.id = 'quantityBox';
 		let imageOfRemoveItem = document.createElement('i');

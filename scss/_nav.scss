@@ -155,6 +155,7 @@ a {
     width: 100%;
     @include desktop {
         width: 35vw;
+        min-width: 375px;
     }
 }
 
