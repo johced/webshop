@@ -616,7 +616,8 @@ body {
   box-sizing: border-box; }
 
 html {
-  scroll-behavior: smooth; }
+  scroll-behavior: smooth;
+  overflow-x: hidden; }
 
 #main-footer {
   background-color: #1a1a1a;
