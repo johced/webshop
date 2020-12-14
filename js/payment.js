@@ -1,6 +1,5 @@
 $(function () {
-    let checkoutHtml = `
-    <div class="checkout">
+    let checkoutHtml = `<div class="checkout">
     <div class="cart-section">
     <h3 id="header">1. Shopping cart</h3>
     <ol id="added-products"></ol>
@@ -8,10 +7,10 @@ $(function () {
     <p>Total: </p>
     <p id="total-amount"></p>
     </div>
-    <button class=continue>Continue</button>
+    <button class="continue-1">Continue</button>
     </div>
     
-    <div class="information-section">
+    <div id="information-section" class="checkout-section">
     <h3 id="header">2.Shipping address</h3>
     <label for="name"> Full Name</label>
     <input type="text" id="fname" name="firstname" placeholder="Kalle Anka">
@@ -25,24 +24,28 @@ $(function () {
     <input type="text" id="zip" name="zip" placeholder="10001">
     <label for="country">Country</label>
     <select id="country" name="country">
-    <option value="sweden">Sweden</option>
+    <option value="Sweden">Sweden</option>
     </select>
     </div>
-    <div class="delivery-section">
+    
+    <div id="delivery-section" class="checkout-section">
     <h3 id="header">3.Shipping Method</h3>
     <p>Delivery</p>
     <div>
-    <input type="radio" id="standard" name="deliveryType" value="standard">
-    <label for="standard">Standard 4-7 Bussiness Days - Free</label><br>
-    <input type="radio" id="express" name="deliveryType" value="express">
-    <label for="express">Express 2-3 Bussiness Days - 99 kr</label><br>
+    <input type="radio" id="standard" name="deliveryType" value="Standard delivery 4-7 Bussiness Days">
+    <label for="standard">Standard 4-7 Bussiness Days - Free </label><br>
+    <input type="radio" id="express" name="deliveryType" value="Express delivery 2-3 Bussiness Days">
+    <label for="express">Express 2-3 Bussiness Days - Free </label><br>
     </div>
-    <button class=continue>Continue</button>
+    <button class="continue-2">Continue</button>
     </div>
     
-    <div class="payment-section">  
+    <div id="payment-section" class="checkout-section">  
     <h3 id="header">4.Payment Details</h3>
-    <label for="fname">Accepted Cards</label>
+    <div>
+    <input type="radio" id="card" name="card" value="Credit Card">
+    <label for="card">Credit Card</label>
+    </div>
     <div class="icon-container">
     <i class="fa fa-cc-visa"></i>
     <i class="fa fa-cc-mastercard"></i>
@@ -57,31 +60,132 @@ $(function () {
     <input type="text" id="expyear" name="expyear" placeholder="2020">
     <label for="cvc">CVC</label>
     <input type="text" id="cvc" name="cvc" placeholder="***">
-    <button class=continue>Continue</button>
+    <button class="continue-3">Continue</button>
     </div>
     
-    <div class="confirmation-section">
+    <div id="confirmation-section" class="checkout-section">
     <h3 id="header">5.Place Order</h3>
     <div class="confirm">
-    <h5>Shipping method</h5>
-    <h5>Ship To</h5>
-    <h5>Payment</h5>
-    <h5>Order Summeary</h5>
+    <div id="orderNo">
+    <h5 class="order-form">Order No.</h5>
     </div>
-    <div>
+    <div id="method">
+    <h5 class="order-form">Shipping method</h5>
+    </div>
+    <div id="shipTo">
+    <h5 class="order-form">Ship To</h5>
+    </div>
+    <div id="cardInfo">
+    <h5 class="order-form">Payment</h5>
+    </div>
+    <div id="summery">
+    <h5 class="order-form">Order Summery</h5>
+    </div>
+    <div id="total">
+    <h5 class="order-form">Total price</h5>
+    </div>
+    </div>
+    <div id="term">
     <input type="checkbox" id="term" name="term" value="term">
     <label for="termOfSale">I have read, understood and agree to the Term of Sale</label><br>
     <input type="checkbox" id="offer" name="offer" value="offer">
     <label for="offer">Sign up to receive emails to be the first to know about the latest books, offers and events from BOOKS. By ticking the box and clicking 'Place Order' below upon your purchase history, website browsing and any email preferences that you provide Your personal data is cllected and handled by BOOKS. Once BOOKS has confirmed acceptance of your order, payment will be taken for the item(s) ordered.</label><br>
     </div>
-    <button class="placeOrder">Place Order</button>
+    <button class="placeOrder"><a href="../html/successfulorder.html">Place Order</a></button>
     </div>
-    </div>
-    `
+    </div>`
+    
     $('#main-area').html(checkoutHtml);
     
     addedProducts();
+    
+    $('.continue-1').on('click', function(e) {        
+        $('#information-section').addClass('flex');
+        $('#delivery-section').addClass('flex');
+        $('.cart-section').addClass('opacity');
+        setTimeout( function() {
+            window.location.hash = "#information-section"
+        }, 100);
+    });
+    
+    $('.continue-2').on('click', () => {
+        $('#payment-section').addClass('flex');
+        $('#information-section').addClass('opacity');
+        $('#delivery-section').addClass('opacity');
+        setTimeout( function() {
+            window.location.hash = "#payment-section"
+        }, 100);
+        
+        
+    });
+    
+    $('.continue-3').on('click', () => {
+        $('#confirmation-section').addClass('flex');
+        $('#payment-section').addClass('opacity');
+        setTimeout( function() {
+            window.location.hash = "#confirmation-section"
+        }, 100);
+        let orderNo = Date.now();
+        let name = $('#fname').val();
+        let email = $('#email').val();
+        let address = $('#address').val();
+        let city = $('#city').val();
+        let zip = $('#zip').val();
+        let country = $('#country').val();
+        let shipping = $("input[name='deliveryType']:checked").val();
+        let cardInfo = $("input[name='card']:checked").val();
+        
+        let order = new orderDetail(orderNo, name, email, address, city, zip, country, shipping, cardInfo);
+        console.log(order);
+        
+        orderDetailList.push(order);
+        localStorage.setItem('orderDetailList', JSON.stringify(orderDetailList));
+        
+        orderForm();
+    });
+    
+    $('.placeOrder').on('click', () => {
+        localStorage.removeItem('addedProductsList');
+    });
+    
+    
 });
+function orderForm() {
+    let orderDetailList = JSON.parse(localStorage.getItem('orderDetailList'));
+    let existingProducts = JSON.parse(localStorage.getItem('addedProductsList'));
+    
+    $.each(orderDetailList, (i, order) => {
+        let orderNo = order.orderNo;
+        let name = order.name;
+        let address = order.address;
+        let city = order.city;
+        let zip = order.zip;
+        let country = order.country;
+        let shipping = order.shipping;
+        let cardInfo = order.cardInfo;
+        $('<p class="order-detail">' + orderNo + '</p>').appendTo("#orderNo");
+        $('<p class="order-detail">' + shipping + '</p>').appendTo("#method");
+        $('<p class="order-detail">' + name + '</br>' 
+        + address +" "+ zip + '</br>' 
+        + city +" "+ country + '</p>').appendTo("#shipTo");
+        $('<p class="order-detail">' + cardInfo + '</p>').appendTo("#cardInfo");
+    });
+    let totalAmount = 0;
+    let totalQty = 0;
+    
+    $.each(existingProducts, (i, book) => {
+        let title = book.title;
+        let price = "<span class='item-price'>" + "( Price: " + (parseFloat(book.price)) +" "+"kr )"+ "</span>";
+        let quantity = book.quantity;
+        
+        $('<p>' + title +"   x   " + quantity + price +  '</p>').appendTo('#summery');
+        
+        totalAmount+= parseFloat(book.price) * book.quantity;
+        totalQty += book.quantity;	
+    });
+    
+    $('<p>'+ totalAmount + " kr" +'</p>').appendTo('#total');
+}
 
 
 function addedProducts() {
@@ -89,6 +193,7 @@ function addedProducts() {
     
     $('#added-products').html("");
     let totalAmount = 0;
+    let totalQty = 0;
     
     $.each(existingProducts, (i, book) => {
         let title = book.title;
@@ -148,7 +253,7 @@ function addedProducts() {
             addedProducts();
             
         });
-        let totalQty = 0;
+        
         
         totalAmount+= parseFloat(book.price) * book.quantity;
         totalQty += book.quantity;

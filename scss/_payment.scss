@@ -4,9 +4,35 @@
         margin-top: 50px;
     }
 }
-.cart-section,.information-section, .delivery-section,
-.payment-section,.confirmation-section {
+
+.cart-section {
     display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 10px;
+    margin: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 80vw;
+    
+    h3 {
+        margin-bottom: 10px;
+    }
+    
+    @include desktop {
+        width: 50vw;
+    }
+    
+    label {
+        font-size: 15px;
+    }
+    header {
+        font-size: 20px;
+    }
+}
+
+.checkout-section {
+    // display: flex;
+    display: none;
     flex-wrap: wrap;
     flex-direction: column;
     padding: 10px;
@@ -63,12 +89,12 @@
     }
 }
 
-.continue {
+.continue-1, .continue-2, .continue-3 {
     padding: 10px;
     margin-top: 20px;
     border: none;
     border-radius: 5px;
-    background-color: gray;
+    background-color: blue;
     
     color: white;
     font-size: 15px; 
@@ -85,6 +111,9 @@
     color: white;
     font-size: 15px; 
     cursor: pointer;
+    a {
+        color: white
+    }
 }
 
 input[type=text], select {
@@ -97,3 +126,23 @@ input[type=text], select {
     box-sizing: border-box;
 }
 
+.flex {
+    display: flex;
+}
+
+.opacity {
+    opacity: 0.4;
+}
+
+#term {
+    margin-top: 20px;
+}
+h5 {
+    font-size: 15px;
+    font-weight: bold;
+    margin: 10px 0px 5px 0px;
+}
+
+label {
+    margin: 5px 0 2px 0;
+}

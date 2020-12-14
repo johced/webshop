@@ -19,6 +19,20 @@ class AddedProduct {
 	}
 }
 
+class orderDetail {
+	constructor(orderNo, name, email, address, city, zip, country, shipping, cardInfo) {
+		this.orderNo = orderNo;
+		this.name = name;
+		this.email = email;
+		this.address = address;
+		this.city = city;
+		this.zip = zip;
+		this.country = country;
+		this.shipping = shipping;
+		this.cardInfo = cardInfo;
+	}
+}
+let orderDetailList = [];
 let addedProductsList = [];
 
 let productsList = [
