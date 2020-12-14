@@ -1,9 +1,9 @@
 $(function () {
     let contactDivHtml = `
     <div id="contact-header">
-    <h1>Contact Us</h1>
+    <img id="contact-image" src="../images/contact.jpg" alt="image with contact icons"/>
     </div>
-    <div id="address" class="contact">
+    <div id="address" class="contact-contents">
     <i class="fas fa-map-marker-alt contact-icons"></i>
     <h3 class="contact-method">
     ADRESS
@@ -13,7 +13,7 @@ $(function () {
     167 51 Bromma
     </p>
     </div>
-    <div id="phone" class="contact">
+    <div id="phone" class="contact-contents">
     <i class="fas fa-mobile-alt contact-icons"></i>
     <h3 class="contact-method">
     PHONE
@@ -22,7 +22,7 @@ $(function () {
     Operating Hours:<br/>
     <b>Mon - Fri:</b> 9am - 6pm</p>
     </div>
-    <div id="email" class="contact">
+    <div id="email" class="contact-contents">
     <i class="fas fa-envelope-open-text contact-icons"></i>
     <h3 class="contact-method">
     EMAIL

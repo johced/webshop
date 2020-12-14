@@ -3,18 +3,29 @@ body {
 }
 
 #contact-header {
-    text-align: center;
-    font-size: 20px;
-    width: 100vw;
-    margin: 50px 0;
+    margin: 0;
+
+    @include desktop {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+}
+#contact-image {
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    width: 80vw;
+    max-width: 700px;
+    margin-bottom: 30px;
     
     @include desktop {
-        font-size: 25px;
-        margin-top: 100px;
+        margin-top: 50px;
+        width: 80vw;
     }
 }
 
-.contact {
+.contact-contents {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;

@@ -570,23 +570,33 @@ body {
   font-family: Arial, Helvetica, sans-serif; }
 
 #contact-header {
-  text-align: center;
-  font-size: 20px;
-  width: 100vw;
-  margin: 50px 0; }
+  margin: 0; }
   @media screen and (min-width: 768px) {
     #contact-header {
-      font-size: 25px;
-      margin-top: 100px; } }
+      display: flex;
+      flex-direction: column;
+      width: 100%; } }
 
-.contact {
+#contact-image {
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px;
+  width: 80vw;
+  max-width: 700px;
+  margin-bottom: 30px; }
+  @media screen and (min-width: 768px) {
+    #contact-image {
+      margin-top: 50px;
+      width: 80vw; } }
+
+.contact-contents {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
   flex-direction: column;
   text-align: center; }
   @media screen and (min-width: 768px) {
-    .contact {
+    .contact-contents {
       margin-bottom: 100px; } }
 
 .contact-method {
