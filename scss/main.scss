@@ -2,9 +2,7 @@
 @import 'nav';
 @import 'shoppingcart';
 @import 'products';
-@import 'checkout';
 @import 'grid';
-@import 'continueshopping';
 @import 'successfulorder';
 @import 'payment';
 @import 'startpage';
@@ -31,7 +29,7 @@ body {
 	text-align: center;
 	padding-top: 20px;
 	& p {
-		color:white;
+		color: white;
 		padding: 10px;
 	}
 }

@@ -4,9 +4,9 @@ $(function () {
 function displayObjectFromLS() {
 	let productDetailObjectAsTextFromLS = sessionStorage.getItem('productDetailObject');
 	let productDetailObjectFromLS = JSON.parse(productDetailObjectAsTextFromLS);
-	// START - TESTING TO CREATE VARIABLES INSTEAD
+
 	let container = document.getElementById('main-area');
-	//$.each(productDetailObjectFromLS, (i, book) => {
+
 	for (let i = 0; i < productDetailObjectFromLS.length; i++) {
 		let divContainer = document.createElement('div');
 		divContainer.id = 'productlistBoxDetail';
@@ -17,7 +17,7 @@ function displayObjectFromLS() {
 		let textOfTitle = document.createElement('h3');
 		textOfTitle.innerText = productDetailObjectFromLS[i].title;
 		let textOfPrice = document.createElement('p');
-		textOfPrice.innerText = productDetailObjectFromLS[i].price + " kr";
+		textOfPrice.innerText = productDetailObjectFromLS[i].price + ' kr';
 		let divOfQuantity = document.createElement('div');
 		divOfQuantity.id = 'quantityBox';
 		let imageOfRemoveItem = document.createElement('i');
@@ -39,11 +39,12 @@ function displayObjectFromLS() {
 		addButton.id = 'addButton';
 		addButton.setAttribute('aria-label', 'add button');
 		addButton.innerText = 'Add';
-		// Add eventlistener create function
+
 		let divOfDescription = document.createElement('div');
 		divOfDescription.id = 'productDescription';
 		let textOfDescription = document.createElement('h5');
 		textOfDescription.innerText = productDetailObjectFromLS[i].description;
+
 		container.appendChild(divContainer);
 		divContainer.appendChild(divInnerContainer);
 		divInnerContainer.appendChild(imageOfProduct);
@@ -85,7 +86,6 @@ function displayObjectFromLS() {
 		localStorage.setItem('addedProductsList', JSON.stringify(existingProducts));
 
 		updateCart();
-		window.location.assign('payment.html');
 	});
 
 	function reduceItem(item) {
