@@ -1,11 +1,4 @@
-.checkout {
-	margin-top: 20px;
-
-	@include desktop {
-		margin-top: 50px;
-	}
-}
-
+//checkout-form
 .cart-section {
 	display: flex;
 	flex-wrap: wrap;
@@ -14,21 +7,22 @@
 	margin: 10px;
 	font-family: Arial, Helvetica, sans-serif;
 	width: 80vw;
-
-	h3 {
-		margin-bottom: 10px;
-	}
-
 	@include desktop {
 		width: 50vw;
 	}
-
-	label {
+	& h3 {
+		margin-bottom: 10px;
+	}
+	& label {
 		font-size: 15px;
 	}
-	header {
+	& header {
 		font-size: 20px;
 	}
+}
+
+.paymentClass {
+	justify-content: center;
 }
 
 .checkout-section {
@@ -39,22 +33,21 @@
 	margin: 10px;
 	font-family: Arial, Helvetica, sans-serif;
 	width: 80vw;
-
-	h3 {
-		margin-bottom: 10px;
-	}
-
 	@include desktop {
 		width: 50vw;
 	}
-
-	label {
+	& h3 {
+		margin-bottom: 10px;
+	}
+	& label {
 		font-size: 15px;
 	}
-	header {
+	& header {
 		font-size: 20px;
 	}
 }
+
+//cart-section
 #added-products {
 	list-style-type: none;
 }
@@ -87,31 +80,31 @@
 	}
 }
 
-.continue-1,
-.continue-2,
+//continue-buttons
+.continue-1,.continue-2,
 .continue-3 {
 	padding: 10px;
 	margin-top: 20px;
 	border: none;
 	border-radius: 5px;
 	background-color: blue;
-
+	
 	color: white;
 	font-size: 15px;
 	cursor: pointer;
 }
 
+//place-order button
 .placeOrder {
 	padding: 10px;
 	margin-top: 40px;
 	border: none;
 	border-radius: 5px;
 	background-color: black;
-
 	color: white;
 	font-size: 15px;
 	cursor: pointer;
-	a {
+	& a {
 		color: white;
 	}
 }
@@ -127,32 +120,42 @@ select {
 	box-sizing: border-box;
 }
 
+//show next section when a continue button is clicked
 .flex {
 	display: flex;
 }
 
+//fade out a previous section when a countinue button is clicked
 .opacity {
 	opacity: 0.4;
 }
 
+//card icons
+.icon-container {
+	margin-left: 17px;;
+}
+
+//Term of Sale
 #term {
 	margin-top: 20px;
 }
-h5 {
+
+//order-form header
+.order-form {
 	font-size: 15px;
 	font-weight: bold;
 	margin: 10px 0px 5px 0px;
 }
 
+//input labels
 label {
 	margin: 5px 0 2px 0;
 }
 
+//error message
 .error {
 	color: red;
 	margin-top: 0;
 }
 
-.paymentClass {
-	justify-content: center;
-}
+
