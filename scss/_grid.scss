@@ -6,39 +6,34 @@
 		'mainarea mainarea mainarea mainarea mainarea' 1fr
 		'footer footer footer footer footer' 100px
 		/ 50% 1fr;
-		@include desktop {
-			grid-template:'mainlogo navbar navbar navbar navbar' 100px
+	@include desktop {
+		grid-template:
+			'mainlogo navbar navbar navbar navbar' 100px
 			'mainarea mainarea mainarea mainarea mainarea' 1fr
 			'footer footer footer footer footer' 100px
 			/ 20% 1fr;
-		}
+	}
 }
 
 .logo {
 	grid-area: mainlogo;
-	// border: 1px solid black;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	
 }
 
 .nav {
 	grid-area: navbar;
-	// border: 1px solid black;
-	// display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
 .main {
 	grid-area: mainarea;
-	// border: 1px solid black;
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
-	// padding: 10px;
 	align-items: center;
 	@include desktop {
 		flex-direction: row;
@@ -47,5 +42,4 @@
 
 .footer {
 	grid-area: footer;
-	// border: 1px solid black;
 }
