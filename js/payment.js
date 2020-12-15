@@ -96,6 +96,7 @@ $(function () {
     </div>`
     
     $('#main-area').html(checkoutHtml);
+    $('input').prop('required', true);
     
     addedProducts();
     
