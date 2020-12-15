@@ -20,23 +20,6 @@ $(function () {
     
     $('.continue-3').on('click', () => {
         validateCard();
-        let orderNo = Date.now();
-        let name = $('#fname').val();
-        let email = $('#email').val();
-        let address = $('#address').val();
-        let city = $('#city').val();
-        let zip = $('#zip').val();
-        let country = $('#country').val();
-        let shipping = $("input[name='deliveryType']:checked").val();
-        let cardInfo = $("input[name='card']:checked").val();
-        
-        let order = new orderDetail(orderNo, name, email, address, city, zip, country, shipping, cardInfo);
-        console.log(order);
-        
-        orderDetailList.push(order);
-        localStorage.setItem('orderDetailList', JSON.stringify(orderDetailList));
-        
-        orderForm();
     });
     
     $('.placeOrder').on('click', () => {
@@ -53,9 +36,7 @@ function validateForm() {
             address: "required",
             city: "required",
             zip: "required",
-            deliveryType: "required",
-            card:"required"
-            
+            deliveryType: "required", 
         },
         messages: {
             firstname: "Enter First Name",
@@ -63,9 +44,7 @@ function validateForm() {
             address: "Enter your address",
             city: "Enter your city",
             zip: "Enter your zip",
-            deliveryType: "Choose a delivery",
-            card: "Choose a card"
-          
+            deliveryType: "Choose a delivery",    
         },
         submitHandler: function() {
             $('#payment-section').addClass('flex');
@@ -79,14 +58,14 @@ function validateForm() {
 }
 
 function validateCard() {
-    return $("#payment-form").validate({ 
+    $("#payment-form").validate({ 
         rules: {
-            card:"required"
+            paymentType:"required"
             
         },
         messages: {
-            card: "Choose a card"
-          
+            paymentType: "Choose a payment method"
+            
         },
         submitHandler: function() {
             $('#confirmation-section').addClass('flex');
@@ -94,8 +73,27 @@ function validateCard() {
             setTimeout( function() {
                 window.location.hash = "#confirmation-section"
             }, 100);
+            orderDetailToLS();
+            orderForm();
         }
     });
+}
+function orderDetailToLS() {
+    let orderNo = Date.now();
+    let name = $('#fname').val();
+    let email = $('#email').val();
+    let address = $('#address').val();
+    let city = $('#city').val();
+    let zip = $('#zip').val();
+    let country = $('#country').val();
+    let shipping = $("input[name='deliveryType']:checked").val();
+    let cardInfo = $("input[name='paymentType']:checked").val();
+    
+    let order = new orderDetail(orderNo, name, email, address, city, zip, country, shipping, cardInfo);
+    console.log(order);
+    
+    orderDetailList.push(order);
+    localStorage.setItem('orderDetailList', JSON.stringify(orderDetailList));
 }
 
 function orderForm() {
@@ -259,8 +257,10 @@ function createHTML() {
     <div id="payment-section" class="checkout-section">  
     <h3 id="header">4.Payment Details</h3>
     <div>
-    <input type="radio" id="card" name="card" value="Credit Card">
+    <input type="radio" id="card" name="paymentType" value="Credit Card">
     <label for="card">Credit Card</label>
+    <input type="radio" id="swish" name="paymentType" value="Swish">
+    <label for="swish">Swish</label>
     </div>
     <div class="icon-container">
     <i class="fa fa-cc-visa"></i>
