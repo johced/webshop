@@ -34,7 +34,7 @@ a {
     width: 100%;
     height: auto;
     background-color: rgba(0, 0, 0, 0.7);
-    transition: all .5s ease-in-out; }
+    transition: all 0.5s ease-in-out; }
     @media screen and (min-width: 768px) {
       #main-nav nav {
         top: 0;
@@ -56,7 +56,7 @@ a {
         padding: 0 15px;
         color: #fff;
         display: block;
-        transition: .3s; }
+        transition: 0.3s; }
         @media screen and (min-width: 768px) {
           #main-nav nav ul a {
             color: black; } }
@@ -132,7 +132,8 @@ a {
   width: 100%; }
   @media screen and (min-width: 768px) {
     #cart-items {
-      width: 35vw; } }
+      width: 35vw;
+      min-width: 375px; } }
 
 #cart-header {
   font-size: 20px;
@@ -213,12 +214,14 @@ a {
       height: 400px; } }
   #productlistBox img {
     width: 60%;
-    height: 70%; }
+    height: 70%;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 2px; }
     @media screen and (min-width: 768px) {
       #productlistBox img {
         width: 60%;
-        height: 70%;
-        padding-right: 10px; } }
+        height: 70%; } }
   #productlistBox button {
     width: 80px;
     height: 40px;
@@ -247,12 +250,14 @@ a {
   #productlistBoxDetail img {
     width: 65%;
     height: 70%;
-    max-height: 270px; }
+    height: 270px;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 2px; }
     @media screen and (min-width: 768px) {
       #productlistBoxDetail img {
         width: 100%;
-        height: 60%;
-        padding-right: 10px; } }
+        height: 60%; } }
   #productlistBoxDetail button {
     width: 80px;
     height: 40px;
@@ -272,10 +277,9 @@ a {
   @media screen and (min-width: 768px) {
     #productLeft {
       width: 30%; } }
-  #productLeft img {
-    padding-bottom: 10px; }
   #productLeft h3 {
-    padding-bottom: 10px; }
+    padding-bottom: 10px;
+    padding-top: 10px; }
   #productLeft p {
     padding-bottom: 10px; }
   #productLeft button {
@@ -287,6 +291,9 @@ a {
   @media screen and (min-width: 768px) {
     #productDescription {
       width: 70%; } }
+  @media screen and (min-width: 768px) {
+    #productDescription h5 {
+      padding-left: 10px; } }
 
 #quantityBox {
   display: flex;
@@ -499,6 +506,10 @@ h5 {
 label {
   margin: 5px 0 2px 0; }
 
+.error {
+  color: red;
+  margin-top: 0; }
+
 header {
   width: 100vw;
   height: 90vh;
@@ -565,13 +576,78 @@ header {
         font-size: 20px;
         width: 160px; } }
 
+.accordionInAbout {
+  max-width: 500px;
+  min-width: 360px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-basis: auto; }
+  @media screen and (min-width: 768px) {
+    .accordionInAbout {
+      min-width: 500px; } }
+
+#accordion {
+  min-width: 360px;
+  padding-top: 20px;
+  padding-bottom: 20px; }
+  @media screen and (min-width: 768px) {
+    #accordion {
+      min-width: 500px; } }
+
+#contact-header {
+  margin: 0; }
+  @media screen and (min-width: 768px) {
+    #contact-header {
+      display: flex;
+      flex-direction: column;
+      width: 100%; } }
+
+#contact-image {
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px;
+  width: 80vw;
+  max-width: 700px;
+  margin-bottom: 30px; }
+  @media screen and (min-width: 768px) {
+    #contact-image {
+      margin-top: 50px;
+      width: 80vw; } }
+
+.contact-contents {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  flex-direction: column;
+  text-align: center; }
+  @media screen and (min-width: 768px) {
+    .contact-contents {
+      margin-bottom: 100px; } }
+
+.contact-method {
+  font-size: 20px; }
+
+.contact-icons {
+  font-size: 40px;
+  padding: 20px; }
+
+.contact-text {
+  padding: 20px;
+  line-height: 25px; }
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box; }
 
 html {
-  scroll-behavior: smooth; }
+  scroll-behavior: smooth;
+  overflow-x: hidden; }
+
+body {
+  font-family: Arial, Helvetica, sans-serif; }
 
 #main-footer {
   background-color: #1a1a1a;

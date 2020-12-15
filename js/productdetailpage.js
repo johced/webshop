@@ -17,7 +17,7 @@ function displayObjectFromLS() {
 		let textOfTitle = document.createElement('h3');
 		textOfTitle.innerText = productDetailObjectFromLS[i].title;
 		let textOfPrice = document.createElement('p');
-		textOfPrice.innerText = productDetailObjectFromLS[i].price;
+		textOfPrice.innerText = productDetailObjectFromLS[i].price + " kr";
 		let divOfQuantity = document.createElement('div');
 		divOfQuantity.id = 'quantityBox';
 		let imageOfRemoveItem = document.createElement('i');
@@ -65,7 +65,7 @@ function displayObjectFromLS() {
 		}
 		let i = 0;
 		let item = new AddedProduct(productDetailObjectFromLS[i].title, productDetailObjectFromLS[i].price, productDetailObjectFromLS[i].quantity, productDetailObjectFromLS[i].id);
-		
+
 		let index = 0;
 		let productInCart = false;
 		$.each(existingProducts, (i, product) => {
@@ -74,21 +74,20 @@ function displayObjectFromLS() {
 				index = i;
 			}
 		});
-		
+
 		if (productInCart === true) {
 			existingProducts.splice(index, 1);
 		}
-		
+
 		existingProducts.push(item);
-		
+
 		localStorage.setItem('addedProductsList', JSON.stringify(addedProductsList));
 		localStorage.setItem('addedProductsList', JSON.stringify(existingProducts));
-		
+
 		updateCart();
-		
+		window.location.assign('payment.html');
 	});
-	
-	
+
 	function reduceItem(item) {
 		let reduce = document.getElementById('quantity');
 		if (item.quantity == 1) {
@@ -102,8 +101,4 @@ function displayObjectFromLS() {
 		item.quantity++;
 		add.innerText = item.quantity;
 	}
-	
 }
-
-
-

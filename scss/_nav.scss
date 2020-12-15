@@ -1,147 +1,147 @@
 //logo
 #books-logo {
-    margin: auto;
-    text-decoration: none;
-    font-size: 40px;
-    color: black;
-    font-weight: bold;
-    cursor: pointer;
-    font-family: serif;
-    font-size: 40px;
+	margin: auto;
+	text-decoration: none;
+	font-size: 40px;
+	color: black;
+	font-weight: bold;
+	cursor: pointer;
+	font-family: serif;
+	font-size: 40px;
 }
 //main-nav
 ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
 }
 
 a {
-    font-family: sans-serif;
-    text-decoration: none;
+	font-family: sans-serif;
+	text-decoration: none;
 }
 
-#main-nav{
-    padding: 0 20px;
-    @include desktop {
-        position: absolute;
-        top:0;
-        right:0;
-        padding: 0 100px; 
-        width: 50%;
-    }
-    & nav{
-        margin-top: 50px;
-        position: absolute;
-        top: 50px;
-        right: -100%;
-        width: 100%;
-        height: auto;
-        background-color: rgba(0,0,0,.7);
-        transition: all .5s ease-in-out;
-        @include desktop {
-            top: 0;
-            background-color: rgba(0,0,0,0);
-        }
-        & ul{
-            display: block;
-            text-align: center;
-            @include desktop {
-                display: flex;
-                float: right;
-                margin-right: 20px;
-                padding-bottom: 10px;
-            }
-            & a{
-                font-size: 20px;
-                text-decoration: none;
-                height: 50px;
-                line-height: 50px;
-                padding: 0 15px;
-                color: #fff;
-                display: block;
-                transition: .3s;
-                @include desktop {
-                    color: black;
-                }
-                &:hover, &.hightlight{
-                    color: #fff;
-                    background: orangered;
-                }  
-            }
-        }
-    }
+#main-nav {
+	padding: 0 20px;
+	@include desktop {
+		position: absolute;
+		top: 0;
+		right: 0;
+		padding: 0 100px;
+		width: 50%;
+	}
+	& nav {
+		margin-top: 50px;
+		position: absolute;
+		top: 50px;
+		right: -100%;
+		width: 100%;
+		height: auto;
+		background-color: rgba(0, 0, 0, 0.7);
+		transition: all 0.5s ease-in-out;
+		@include desktop {
+			top: 0;
+			background-color: rgba(0, 0, 0, 0);
+		}
+		& ul {
+			display: block;
+			text-align: center;
+			@include desktop {
+				display: flex;
+				float: right;
+				margin-right: 20px;
+				padding-bottom: 10px;
+			}
+			& a {
+				font-size: 20px;
+				text-decoration: none;
+				height: 50px;
+				line-height: 50px;
+				padding: 0 15px;
+				color: #fff;
+				display: block;
+				transition: 0.3s;
+				@include desktop {
+					color: black;
+				}
+				&:hover,
+				&.hightlight {
+					color: #fff;
+					background: orangered;
+				}
+			}
+		}
+	}
 }
 
 //hambuger-menu
-.menu-toggle{
-    line-height: 100px;
-    font-size: 50px;
-    color: black;
-    float: right;
-    cursor: pointer;
-    display: block;
-    @include desktop {
-        display: none;
-    }
+.menu-toggle {
+	line-height: 100px;
+	font-size: 50px;
+	color: black;
+	float: right;
+	cursor: pointer;
+	display: block;
+	@include desktop {
+		display: none;
+	}
 }
 
-#main-nav nav.active{
-    right: 0;
+#main-nav nav.active {
+	right: 0;
 }
 
 @include desktop {
-    #main-nav {
-        nav#desktop-only {
-            right: 60px;
-        }
-    }
+	#main-nav {
+		nav#desktop-only {
+			right: 60px;
+		}
+	}
 }
 
 //shopping-cart
 .cart {
-    position: absolute;;
-    top: 30px;
-    right: 80px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px;
-    @include desktop {
-        top: 55px;
-        right: 15px;
-        cursor: pointer;
-        font-size: 12px;
-    }
-    i {
-        font-size:40px;
-        color:black;
-        @include desktop {
-            font-size: 30px;
-            margin-right: 20px;
-        }
-    }
-    
+	position: absolute;
+	top: 30px;
+	right: 80px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	@include desktop {
+		top: 55px;
+		right: 15px;
+		cursor: pointer;
+		font-size: 12px;
+	}
+	i {
+		font-size: 40px;
+		color: black;
+		@include desktop {
+			font-size: 30px;
+			margin-right: 20px;
+		}
+	}
 }
 
 //shopping-cart counter
 .cart-counter {
-    position: absolute;
-    left: 30px;
-    display: inline-block;
-    width: 25px;
-    height: 25px;
-    color: white;
-    background: orangered;
-    text-align: center;
-    border-radius: 50%;
-    padding:3px;
-    @include desktop {
-        width: 15px;
-        height: 15px;
-        position: absolute;
-        left: 20px;
-        width: 20px;
-        height: 20px;
-    }
+	position: absolute;
+	left: 30px;
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	color: white;
+	background: orangered;
+	text-align: center;
+	border-radius: 50%;
+	padding: 3px;
+	@include desktop {
+		width: 15px;
+		height: 15px;
+		position: absolute;
+		left: 20px;
+		width: 20px;
+		height: 20px;
+	}
 }
 
 //added items list in shopping-cart
@@ -155,83 +155,82 @@ a {
     width: 100%;
     @include desktop {
         width: 35vw;
+        min-width: 375px;
     }
 }
 
 #cart-header {
-    font-size: 20px;
-    font-weight: bold;
-    padding: 30px;
-    text-align: center;
+	font-size: 20px;
+	font-weight: bold;
+	padding: 30px;
+	text-align: center;
 }
 
 .close {
-    font-size: 30px;
-    float: right;
-    margin: 0;
-    padding: 0;
-    cursor: pointer;
-    @include desktop {
-        margin-right: 10px;
-    }
+	font-size: 30px;
+	float: right;
+	margin: 0;
+	padding: 0;
+	cursor: pointer;
+	@include desktop {
+		margin-right: 10px;
+	}
 }
 
-#list-item li{
-    margin: 10px 0px;
-    list-style-type: none;
-    border-bottom: 1px solid lightgray;
-    padding-bottom: 5px;
+#list-item li {
+	margin: 10px 0px;
+	list-style-type: none;
+	border-bottom: 1px solid lightgray;
+	padding-bottom: 5px;
 }
 
 .eachPrice {
-    position: absolute;
-    right: 70px;
+	position: absolute;
+	right: 70px;
 }
 
 #removeItemInCart {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 #addItemInCart {
-    cursor: pointer
+	cursor: pointer;
 }
 
-.remove{
-    color: red;
-    size: 30px;
-    margin-right: 10px;
-    float: right;
-    cursor: pointer;
+.remove {
+	color: red;
+	size: 30px;
+	margin-right: 10px;
+	float: right;
+	cursor: pointer;
 }
-
 
 .total-price {
-    position: absolute;
-    right: 60px;
-    font-weight: bold;
-    p{
-        display: inline;
-        margin-left: 20px;
-    }
+	position: absolute;
+	right: 60px;
+	font-weight: bold;
+	p {
+		display: inline;
+		margin-left: 20px;
+	}
 }
 
 .buttons {
-    padding: 10px;
-    margin-top: 40px;
-    border: none;
-    border-radius: 5px;
-    a {
-        color: white;
-        font-size: 15px;
-    }
+	padding: 10px;
+	margin-top: 40px;
+	border: none;
+	border-radius: 5px;
+	a {
+		color: white;
+		font-size: 15px;
+	}
 }
 
 .continue-btn {
-    background-color: rgb(0, 89, 255);
+	background-color: rgb(0, 89, 255);
 }
 
 .checkout-btn {
-    background-color: green;
-    float: right;
+	background-color: green;
+	float: right;
 }
-
