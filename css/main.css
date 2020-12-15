@@ -213,12 +213,14 @@ a {
       height: 400px; } }
   #productlistBox img {
     width: 60%;
-    height: 70%; }
+    height: 70%;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 2px; }
     @media screen and (min-width: 768px) {
       #productlistBox img {
         width: 60%;
-        height: 70%;
-        padding-right: 10px; } }
+        height: 70%; } }
   #productlistBox button {
     width: 80px;
     height: 40px;
@@ -247,12 +249,14 @@ a {
   #productlistBoxDetail img {
     width: 65%;
     height: 70%;
-    max-height: 270px; }
+    height: 270px;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 2px; }
     @media screen and (min-width: 768px) {
       #productlistBoxDetail img {
         width: 100%;
-        height: 60%;
-        padding-right: 10px; } }
+        height: 60%; } }
   #productlistBoxDetail button {
     width: 80px;
     height: 40px;
@@ -272,10 +276,9 @@ a {
   @media screen and (min-width: 768px) {
     #productLeft {
       width: 30%; } }
-  #productLeft img {
-    padding-bottom: 10px; }
   #productLeft h3 {
-    padding-bottom: 10px; }
+    padding-bottom: 10px;
+    padding-top: 10px; }
   #productLeft p {
     padding-bottom: 10px; }
   #productLeft button {
@@ -287,6 +290,9 @@ a {
   @media screen and (min-width: 768px) {
     #productDescription {
       width: 70%; } }
+  @media screen and (min-width: 768px) {
+    #productDescription h5 {
+      padding-left: 10px; } }
 
 #quantityBox {
   display: flex;
@@ -567,10 +573,22 @@ header {
 
 .accordionInAbout {
   max-width: 500px;
-  padding-top: 140px;
-  margin-top: 10px; }
+  min-width: 360px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-basis: auto; }
   @media screen and (min-width: 768px) {
     .accordionInAbout {
+      min-width: 500px; } }
+
+#accordion {
+  min-width: 360px;
+  padding-top: 20px;
+  padding-bottom: 20px; }
+  @media screen and (min-width: 768px) {
+    #accordion {
       min-width: 500px; } }
 
 * {
