@@ -4,7 +4,7 @@ $(function () {
 
 	let navDivHtml = `<nav id="desktop-only">
     <ul>
-    <li><a href="#">About Us</a></li>
+    <li><a href="../html/about.html">About us</a></li>
     <li><a href="../html/productslist.html">Products</a></li>
     <li><a href="../html/contact.html">Contact Us</a></li>
     </ul>
@@ -223,3 +223,4 @@ function addedProducts() {
     
     $("#total-amount").html( totalAmount +" "+"kr");
 }
+

@@ -34,7 +34,7 @@ a {
     width: 100%;
     height: auto;
     background-color: rgba(0, 0, 0, 0.7);
-    transition: all .5s ease-in-out; }
+    transition: all 0.5s ease-in-out; }
     @media screen and (min-width: 768px) {
       #main-nav nav {
         top: 0;
@@ -56,7 +56,7 @@ a {
         padding: 0 15px;
         color: #fff;
         display: block;
-        transition: .3s; }
+        transition: 0.3s; }
         @media screen and (min-width: 768px) {
           #main-nav nav ul a {
             color: black; } }
@@ -214,12 +214,14 @@ a {
       height: 400px; } }
   #productlistBox img {
     width: 60%;
-    height: 70%; }
+    height: 70%;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 2px; }
     @media screen and (min-width: 768px) {
       #productlistBox img {
         width: 60%;
-        height: 70%;
-        padding-right: 10px; } }
+        height: 70%; } }
   #productlistBox button {
     width: 80px;
     height: 40px;
@@ -248,12 +250,14 @@ a {
   #productlistBoxDetail img {
     width: 65%;
     height: 70%;
-    max-height: 270px; }
+    height: 270px;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 2px; }
     @media screen and (min-width: 768px) {
       #productlistBoxDetail img {
         width: 100%;
-        height: 60%;
-        padding-right: 10px; } }
+        height: 60%; } }
   #productlistBoxDetail button {
     width: 80px;
     height: 40px;
@@ -273,10 +277,9 @@ a {
   @media screen and (min-width: 768px) {
     #productLeft {
       width: 30%; } }
-  #productLeft img {
-    padding-bottom: 10px; }
   #productLeft h3 {
-    padding-bottom: 10px; }
+    padding-bottom: 10px;
+    padding-top: 10px; }
   #productLeft p {
     padding-bottom: 10px; }
   #productLeft button {
@@ -288,6 +291,9 @@ a {
   @media screen and (min-width: 768px) {
     #productDescription {
       width: 70%; } }
+  @media screen and (min-width: 768px) {
+    #productDescription h5 {
+      padding-left: 10px; } }
 
 #quantityBox {
   display: flex;
@@ -355,10 +361,10 @@ a {
 .grid-container {
   display: grid;
   height: 100vh;
-  grid-template: 'mainlogo navbar navbar navbar navbar' 100px 'mainarea mainarea mainarea mainarea mainarea' 1fr 'footer footer footer footer footer' 100px / 50% 1fr; }
+  grid-template: 'mainlogo navbar navbar navbar navbar' 100px 'mainarea mainarea mainarea mainarea mainarea' 1fr 'footer footer footer footer footer' 100px / 50% 1fr; }
   @media screen and (min-width: 768px) {
     .grid-container {
-      grid-template: 'mainlogo navbar navbar navbar navbar' 100px 'mainarea mainarea mainarea mainarea mainarea' 1fr 'footer footer footer footer footer' 100px / 20% 1fr; } }
+      grid-template: 'mainlogo navbar navbar navbar navbar' 100px 'mainarea mainarea mainarea mainarea mainarea' 1fr 'footer footer footer footer footer' 100px / 20% 1fr; } }
 
 .logo {
   grid-area: mainlogo;
@@ -570,6 +576,27 @@ header {
         font-size: 20px;
         width: 160px; } }
 
+
+.accordionInAbout {
+  max-width: 500px;
+  min-width: 360px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-basis: auto; }
+  @media screen and (min-width: 768px) {
+    .accordionInAbout {
+      min-width: 500px; } }
+
+#accordion {
+  min-width: 360px;
+  padding-top: 20px;
+  padding-bottom: 20px; }
+  @media screen and (min-width: 768px) {
+    #accordion {
+      min-width: 500px; } 
+    
 #contact-header {
   margin: 0; }
   @media screen and (min-width: 768px) {
