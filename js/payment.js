@@ -25,7 +25,6 @@ $(function () {
 	$('.placeOrder').on('click', () => {
 		mergeLists();
 		localStorage.removeItem('addedProductsList');
-		localStorage.removeItem('orderDetailList');
 	});
 });
 

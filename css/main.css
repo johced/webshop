@@ -340,6 +340,31 @@ a {
 .footer {
   grid-area: footer; }
 
+.successorder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif; }
+  .successorder h2 {
+    text-align: center;
+    margin-bottom: 20px; }
+  .successorder p {
+    margin: 10px;
+    text-align: center; }
+    .successorder p a {
+      color: blue; }
+  .successorder button {
+    margin: 20px;
+    padding: 10px;
+    background-color: #0059ff;
+    border: none;
+    border-radius: 5px;
+    width: 200px; }
+    .successorder button #continueShpLink {
+      color: white;
+      font-size: 15px; }
+
 .cart-section {
   display: flex;
   flex-wrap: wrap;
