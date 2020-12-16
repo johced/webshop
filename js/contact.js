@@ -1,8 +1,13 @@
 $(function () {
+    createContactDiv();
+});
+
+function createContactDiv() {
     let contactDivHtml = `
     <div id="contact-header">
     <img id="contact-image" src="../images/contact.jpg" alt="image with contact icons"/>
     </div>
+
     <div id="address" class="contact-contents">
     <i class="fas fa-map-marker-alt contact-icons"></i>
     <h3 class="contact-method">
@@ -13,6 +18,7 @@ $(function () {
     167 51 Bromma
     </p>
     </div>
+
     <div id="phone" class="contact-contents">
     <i class="fas fa-mobile-alt contact-icons"></i>
     <h3 class="contact-method">
@@ -22,6 +28,7 @@ $(function () {
     Operating Hours:<br/>
     <b>Mon - Fri:</b> 9am - 6pm</p>
     </div>
+    
     <div id="email" class="contact-contents">
     <i class="fas fa-envelope-open-text contact-icons"></i>
     <h3 class="contact-method">
@@ -33,5 +40,4 @@ $(function () {
     </div>`
     
     $('#main-area').html(contactDivHtml);
-    
-});
+}
