@@ -23,9 +23,25 @@ $(function () {
 	});
 	
 	$('.placeOrder').on('click', () => {
+		mergeLists();
 		localStorage.removeItem('addedProductsList');
+		localStorage.removeItem('orderDetailList');
 	});
 });
+
+function mergeLists() {
+
+	let orderDetailList = JSON.parse(localStorage.getItem('orderDetailList'));
+	let existingProducts = JSON.parse(localStorage.getItem('addedProductsList'));
+
+	let merge = $.merge( $.merge( [], orderDetailList ), existingProducts );
+	console.log(merge);
+
+	updatedOrderDetailList.push(merge);
+
+	localStorage.setItem('updatedOrderDetailList', JSON.stringify(updatedOrderDetailList));
+}
+
 function validateForm() {
 	$('#information-form').validate({
 		rules: {
