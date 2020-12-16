@@ -1,5 +1,4 @@
 $(function () {
-	
 	addedProducts();
 	
 	$('.continue-1').on('click', function () {
