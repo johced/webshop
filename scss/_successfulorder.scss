@@ -1,0 +1,30 @@
+.successorder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    p {
+        margin: 10px;
+        text-align: center;
+        a{
+            color: blue;
+        }
+    }
+    button {
+        margin: 20px;
+        padding: 10px;
+        background-color: rgb(0, 89, 255);
+        border: none;
+        border-radius: 5px;
+        width: 200px;
+        #continueShpLink {
+            color: white;
+            font-size: 15px;
+        }
+    }
+}
