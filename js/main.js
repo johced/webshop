@@ -34,6 +34,7 @@ class orderDetail {
 }
 let orderDetailList = [];
 let addedProductsList = [];
+let updatedOrderDetailList =[];
 
 let productsList = [
 	{
