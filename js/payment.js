@@ -1,6 +1,5 @@
 $(function () {
 	createCheckoutDiv();
-	
 	$('button').attr('type', 'submit');
 	
 	addedProducts();
@@ -27,19 +26,6 @@ $(function () {
 		localStorage.removeItem('addedProductsList');
 	});
 });
-
-function mergeLists() {
-
-	let orderDetailList = JSON.parse(localStorage.getItem('orderDetailList'));
-	let existingProducts = JSON.parse(localStorage.getItem('addedProductsList'));
-
-	let merge = $.merge( $.merge( [], orderDetailList ), existingProducts );
-	console.log(merge);
-
-	updatedOrderDetailList.push(merge);
-
-	localStorage.setItem('updatedOrderDetailList', JSON.stringify(updatedOrderDetailList));
-}
 
 function validateForm() {
 	$('#information-form').validate({
@@ -71,7 +57,6 @@ function validateForm() {
 }
 
 function validatePayment() {
-	
 	$('#payment-form').validate({
 		rules: {
 			paymentType: 'required',
@@ -90,6 +75,17 @@ function validatePayment() {
 		},
 	});
 }
+
+function mergeLists() {
+	let orderDetailList = JSON.parse(localStorage.getItem('orderDetailList'));
+	let existingProducts = JSON.parse(localStorage.getItem('addedProductsList'));
+	
+	let merge = $.merge( $.merge( [], orderDetailList ), existingProducts );
+	
+	updatedOrderDetailList.push(merge);
+	localStorage.setItem('updatedOrderDetailList', JSON.stringify(updatedOrderDetailList));
+}
+
 function orderDetailToLocalStorage() {
 	let orderNo = Date.now();
 	let name = $('#fname').val();
@@ -125,6 +121,7 @@ function orderForm() {
 		$('<p class="order-detail">' + name + '</br>' + address + ' ' + zip + '</br>' + city + ' ' + country + '</p>').appendTo('#shipTo');
 		$('<p class="order-detail">' + cardInfo + '</p>').appendTo('#cardInfo');
 	});
+	
 	let totalAmount = 0;
 	let totalQty = 0;
 	
@@ -146,6 +143,7 @@ function addedProducts() {
 	let existingProducts = JSON.parse(localStorage.getItem('addedProductsList'));
 	
 	$('#added-products').html('');
+	
 	let totalAmount = 0;
 	let totalQty = 0;
 	
@@ -167,7 +165,7 @@ function addedProducts() {
 				book.quantity--;
 				reduceNum.html(book.quantity);
 			}
-			let quantity = $('#book-' + book.id + book.price + ' #quantityInCheckout').html();
+			let quantity = reduceNum.html();
 			book.quantity = parseInt(quantity);
 			localStorage.setItem('addedProductsList', JSON.stringify(existingProducts));
 			
@@ -180,7 +178,7 @@ function addedProducts() {
 			book.quantity++;
 			addNum.html(book.quantity);
 			
-			let quantity = $('#book-' + book.id + book.price + ' #quantityInCheckout').html();
+			let quantity = addNum.html();
 			book.quantity = parseInt(quantity);
 			localStorage.setItem('addedProductsList', JSON.stringify(existingProducts));
 			
