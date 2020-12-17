@@ -4,12 +4,12 @@ $(function () {
 	
 	createNavDiv();
 	
+	$('#cart-items').hide();
+
 	$('.menu-toggle').on('click', function () {
 		$('nav').toggleClass('active');
 		$('#cart-items').slideUp();
 	});
-	
-	$('#cart-items').hide();
 	
 	$('.cart').on('click', function () {
 		$('nav').removeClass('active');
@@ -49,7 +49,7 @@ function updateCart() {
 				book.quantity--;
 				reduceNum.html(book.quantity);
 			}
-			let quantity = $('#book-' + book.id + ' #quantityInCart').html();
+			let quantity = reduceNum.html();
 			
 			book.quantity = parseInt(quantity);
 			localStorage.setItem('addedProductsList', JSON.stringify(existingProducts));
@@ -63,7 +63,7 @@ function updateCart() {
 			book.quantity++;
 			addNum.html(book.quantity);
 			
-			let quantity = $('#book-' + book.id + ' #quantityInCart').html();
+			let quantity = addNum.html();
 			
 			book.quantity = parseInt(quantity);
 			localStorage.setItem('addedProductsList', JSON.stringify(existingProducts));
@@ -100,6 +100,7 @@ function addedProducts() {
 	let existingProducts = JSON.parse(localStorage.getItem('addedProductsList'));
 	
 	$('#added-products').html('');
+	
 	let totalAmount = 0;
 	let totalQty = 0;
 	
@@ -121,7 +122,7 @@ function addedProducts() {
 				book.quantity--;
 				reduceNum.html(book.quantity);
 			}
-			let quantity = $('#book-' + book.id + book.price + ' #quantityInCheckout').html();
+			let quantity = reduceNum.html();
 			book.quantity = parseInt(quantity);
 			localStorage.setItem('addedProductsList', JSON.stringify(existingProducts));
 			
@@ -134,7 +135,7 @@ function addedProducts() {
 			book.quantity++;
 			addNum.html(book.quantity);
 			
-			let quantity = $('#book-' + book.id + book.price + ' #quantityInCheckout').html();
+			let quantity = addNum.html();
 			book.quantity = parseInt(quantity);
 			localStorage.setItem('addedProductsList', JSON.stringify(existingProducts));
 			
