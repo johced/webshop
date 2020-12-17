@@ -1,34 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Webshop</title>
-		<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-		<script src="jquery-ui-1.12.1/jquery-ui.js"></script>
-
-		<link href="jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet" />
-		<link href="jquery-ui-1.12.1/jquery-ui.theme.css" rel="stylesheet" />
-		<link href="css/main.css" rel="stylesheet" />
-
-		<script src="js/main.js"></script>
-		<script src="../js/payment.js"></script>
-	</head>
-	<body>
-		<div class="grid-container">
-			<div id="main-logo">
-				<img class="mainlogo" src="images/templogo.jpg" alt="our logotype" />
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+	<meta name="Description" content="Payment page for best books in the business. From trusted BOOKS webshop." />
+	<title>Webshop</title>
+	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	<script src="../jquery-ui-1.12.1/jquery-ui.js"></script>
+	<script src="https://kit.fontawesome.com/5e3fe8f605.js" crossorigin="anonymous"></script>
+	<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+	
+	<link href="../jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet" />
+	<link href="../jquery-ui-1.12.1/jquery-ui.theme.css" rel="stylesheet" />
+	<link href="../css/main.css" rel="stylesheet" />
+	
+	<script src="../js/main.js"></script>
+	<script src="../js/nav.js"></script>
+	<script src="../js/payment.js"></script>
+</head>
+<body>
+	<div class="grid-container">
+		<div id="main-logo"></div>
+		<div id="main-nav"></div>
+		<div id="main-area" class="paymentClass">
+			<div class="cart-section">
+				<h3 id="header">1. Shopping cart</h3>
+				<ol id="added-products"></ol>
+				<div class="total-amount">
+					<p>Total: </p>
+					<p id="total-amount"></p>
+				</div>
+				<button class="continue-1" type="submit">Continue</button>
 			</div>
-			<div id="main-nav"><p>Create the nav from js.</p></div>
-			<div id="main-area">
-				<!-- <div id="testbox">Product 1</div>
-				<div id="testbox">Product 2</div>
-				<div id="testbox">Product 3</div>
-				<div id="testbox">Product 4</div>
-				<div id="testbox">Product 5</div>
-				<div id="testbox">Product 6</div> -->
+			
+			<form action="" id="information-form">
+				<div id="information-section" class="checkout-section">
+					<h3 id="header">2.Shipping address</h3>
+					<label for="name"> Full Name</label>
+					<input type="text" id="fname" name="firstname" placeholder="Kalle Anka">
+					<label for="email"> Email</label>
+					<input type="text" id="email" name="email" placeholder="kalleAnka@example.com">
+					<label for="address"> Address</label>
+					<input type="text" id="address" name="address" placeholder="Gustavslundsvägen 151 D">
+					<label for="city"> City</label>
+					<input type="text" id="city" name="city" placeholder="Bromma">
+					<label for="zip">Zip</label>
+					<input type="text" id="zip" name="zip" placeholder="10001">
+					<label for="country">Country</label>
+					<select id="country" name="country">
+						<option value="Sweden">Sweden</option>
+					</select>
+				</div>
+				
+				<div id="delivery-section" class="checkout-section">
+					<h3 id="header">3.Shipping Method</h3>
+					<p>Delivery</p>
+					<div>
+						<input type="radio" id="standard" name="deliveryType" value="Standard delivery 4-7 Bussiness Days">
+						<label for="standard">Standard 4-7 Bussiness Days - Free </label><br>
+						<input type="radio" id="express" name="deliveryType" value="Express delivery 2-3 Bussiness Days">
+						<label for="express">Express 2-3 Bussiness Days - Free </label><br>
+					</div>
+					<button class="continue-2" type="submit">Continue</button>
+				</div>
+			</form>
+			
+			<form action="" id="payment-form">
+				<div id="payment-section" class="checkout-section">  
+					<h3 id="header">4.Payment Details</h3>
+					<div>
+						<input type="radio" id="swish" name="paymentType" value="Swish">
+						<label for="swish">Swish</label><br/>
+						<input type="radio" id="card" name="paymentType" value="Credit Card">
+						<label for="card">Credit Card</label>
+					</div>
+					<div class="icon-container">
+						<i class="fa fa-cc-visa"></i>
+						<i class="fa fa-cc-mastercard"></i>
+						<i class="fab fa-cc-amex"></i>
+					</div>
+					<label for="cardname">Name on Card</label>
+					<input type="text" id="cardname" name="cardname" placeholder="Kalle Anka">
+					<label for="cardnum">Credit card number</label>
+					<input type="text" id="cardnum" name="cardnumber" placeholder="****-****-****-****">
+					<label for="expmonth">Exp Month</label>
+					<input type="text" id="expmonth" name="expmonth" placeholder="December">
+					<label for="expyear">Exp Year</label>
+					<input type="text" id="expyear" name="expyear" placeholder="2020">
+					<label for="cvc">CVC</label>
+					<input type="text" id="cvc" name="cvc" placeholder="***">
+					<button class="continue-3" type="submit">Continue</button>
+				</div>
+			</form>
+			
+			<div id="confirmation-section" class="checkout-section">
+				<h3 id="header">5.Place Order</h3>
+				<div class="confirm">
+					<div id="orderNo">
+						<h5 class="order-form">Order No.</h5>
+					</div>
+					<div id="method">
+						<h5 class="order-form">Shipping method</h5>
+					</div>
+					<div id="shipTo">
+						<h5 class="order-form">Ship To</h5>
+					</div>
+					<div id="cardInfo">
+						<h5 class="order-form">Payment</h5>
+					</div>
+					<div id="summery">
+						<h5 class="order-form">Order Summery</h5>
+					</div>
+					<div id="total">
+						<h5 class="order-form">Total price</h5>
+					</div>
+				</div>
+				<div id="term">
+					<input type="checkbox" id="term" name="term" value="term">
+					<label for="termOfSale">I have read, understood and agree to the Term of Sale</label><br>
+					<input type="checkbox" id="offer" name="offer" value="offer">
+					<label for="offer">Sign up to receive emails to be the first to know about the latest books, offers and events from BOOKS. By ticking the box and clicking 'Place Order' below upon your purchase history, website browsing and any email preferences that you provide Your personal data is cllected and handled by BOOKS. Once BOOKS has confirmed acceptance of your order, payment will be taken for the item(s) ordered.</label><br>
+				</div>
+				<button class="placeOrder" type="submit"><a href="../html/successfulorder.html">Place Order</a></button>
 			</div>
-			<div id="main-footer">We can take this last if we even need it, we can even code it here.</div>
 		</div>
-	</body>
+		<div id="main-footer">
+			<div class="icons">
+				<a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-square"></i></a>
+				<a href="https://twitter.com/?lang=sv" target="_blank"><i class="fab fa-twitter"></i></a>
+				<a href="https://www.linkedin.com/feed/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+				<a href="https://www.instagram.com/?hl=sv" target="_blank"><i class="fab fa-instagram"></i></a>
+				<a href="https://www.pinterest.se/" target="_blank"><i class="fab fa-pinterest-square"></i></a>
+			</div>
+			<div class="copyright">
+				<p>ⓒ Copyright BOOKS. All Reserved.</p>
+			</div>
+		</div>
+	</div>
+</body>
 </html>

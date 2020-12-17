@@ -1,0 +1,81 @@
+header {
+    width: 100vw;
+    height: 90vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('../images/books.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    & .header-text {
+        width: 60vw;
+        text-align: center;
+        @include desktop {
+            width: 30vw;
+        }
+    }
+    & h1 {
+        margin-bottom: 10px;
+        font-family: League Spartan, sans-serif;
+        font-weight: 500;
+        font-size: 30px;
+        color: white;
+        @include desktop {
+            font-size: 45px;
+        }
+    }
+    & #book {
+        font-size: 45px;
+        @include desktop {
+            font-size: 60px;
+            letter-spacing: 0.5px;
+        }
+    }
+    & p {
+        font-family: 'Open Sans', Helvetica, sans-serif;
+        color: white;
+        font-size: 15px;
+        display: block;
+        margin: auto;
+        margin-bottom: 20px;
+        @include desktop {
+            font-size: 20px;
+        }
+    }
+    & button {
+        font-size: 17px;
+        width: 140px;
+        border: 2px solid white;
+        color: white;
+        font-family: 'Roboto', Helvetica, serif;
+        padding: 10px;
+        border-radius: 500px;
+        cursor: pointer;
+        background-color: transparent;
+        transition: all 0.2s ease-in-out;
+        &:hover, &:active {
+            background-color: white;
+            color: black;
+        }
+        & a {
+            text-decoration: none;
+            color: white;
+            &:hover {
+                color: black;
+            }
+        }
+        @include desktop {
+            font-size: 20px;
+            width: 160px; 
+        }
+    } 
+}
+
+
+
+
+
+
+

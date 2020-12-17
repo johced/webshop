@@ -1,0 +1,21 @@
+.accordionInAbout {
+	max-width: 500px;
+	min-width: 360px;
+	margin-top: 50px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	flex-basis: auto;
+	@include desktop {
+		min-width: 500px;
+	}
+}
+
+#accordion {
+	min-width: 360px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	@include desktop {
+		min-width: 500px;
+	}
+}
