@@ -264,7 +264,8 @@ a {
     background-color: #36a136;
     border: none;
     border-radius: 5px;
-    color: white; }
+    color: white;
+    outline: none; }
   #productlistBoxDetail p {
     color: red; }
   #productlistBoxDetail #quantity {
@@ -352,8 +353,6 @@ a {
   .successorder p {
     margin: 10px;
     text-align: center; }
-    .successorder p a {
-      color: blue; }
   .successorder button {
     margin: 20px;
     padding: 10px;
@@ -639,3 +638,6 @@ body {
   margin: 10px; }
   .icons a:hover {
     color: #3f3f3f; }
+
+button {
+  outline: none; }

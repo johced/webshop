@@ -1,6 +1,5 @@
 @import 'responsive';
 @import 'nav';
-@import 'shoppingcart';
 @import 'products';
 @import 'grid';
 @import 'successfulorder';
@@ -41,4 +40,8 @@ body {
 	&:hover {
 		color: rgb(63, 63, 63);
 	}
+}
+
+button {
+	outline: none;
 }
